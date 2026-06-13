@@ -34,8 +34,8 @@
         <h4 class="font-bold mb-6 text-on-surface">Company</h4>
         <ul class="space-y-4">
           <li><NuxtLink class="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/blog">Blog</NuxtLink></li>
-          <li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Privacy Policy</a></li>
-          <li><a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Terms of Service</a></li>
+          <li><NuxtLink class="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/privacy">Privacy Policy</NuxtLink></li>
+          <li><NuxtLink class="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/terms">Terms of Service</NuxtLink></li>
         </ul>
       </div>
       

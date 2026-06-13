@@ -2,88 +2,153 @@
   <main class="pt-20">
     <!-- Hero Section -->
     <section class="relative py-section-padding overflow-hidden">
+      <!-- Glow Gradients -->
+      <div class="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+      <div class="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
+
       <div class="max-w-container-max mx-auto px-gutter relative z-10 text-center">
         <h1 class="font-display-hero text-display-hero-mobile md:text-display-hero mb-6 tracking-tight">
           Simple, Transparent Pricing for <span class="gradient-text">Growing Businesses</span>
         </h1>
+        <h2 class="font-headline-md text-headline-sm text-secondary font-bold mb-3">
+          Stop Paying ₹50,000–₹2,00,000+ Every Year for the Same Features
+        </h2>
         <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto mb-6">
-          Stop Paying ₹50,000–₹2,00,000+ Every Year for the Same Features. The Smarter Alternative to WATI, AiSensy, Interakt &amp; Gallabox.
+          The Smarter Alternative to WATI, AiSensy, Interakt &amp; Gallabox
         </p>
         <p class="font-body-md text-body-md text-on-surface-variant/70 max-w-4xl mx-auto mb-10">
-          Why spend lakhs every year when you can get everything you need in one powerful platform for a fraction of the cost? wappCAST gives you WhatsApp API, automation, broadcasting, CRM, chatbot, team inbox, analytics, APIs, and AI automation — all under one affordable plan.
+          Why spend lakhs every year when you can get everything you need in one powerful platform for a fraction of the cost?
+          wappCAST gives you WhatsApp API, automation, broadcasting, CRM, chatbot, team inbox, analytics, APIs, and AI automation — all under one affordable plan.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <NuxtLink to="/contact" class="btn-primary font-body-lg text-body-lg text-on-primary font-bold px-10 py-4 rounded-xl w-full sm:w-auto text-center shadow-lg shadow-primary/20">
-            Book a Demo (No Credit Card Needed)
+          <NuxtLink to="/demo" target="_blank" class="btn-primary font-body-lg text-body-lg text-on-primary font-bold px-10 py-4 rounded-xl w-full sm:w-auto text-center shadow-lg shadow-primary/20">
+            Book a Demo | No Credit Card Needed
           </NuxtLink>
           <div class="flex items-center gap-2 text-on-surface-variant/60">
             <span class="material-symbols-outlined">schedule</span>
-            <span class="font-body-md text-body-md">15-min walkthrough</span>
+            <span class="font-body-md text-body-md">15-min live walkthrough</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Main Pricing Card -->
+    <!-- Main Pricing Card Section -->
     <section class="py-section-padding bg-surface-container-low/50 relative" id="pricing">
       <div class="max-w-container-max mx-auto px-gutter">
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-6xl mx-auto">
           <div class="glass-card rounded-3xl p-8 md:p-12 border-2 border-primary/30 relative overflow-hidden">
             <div class="absolute top-0 right-0 bg-primary text-on-primary font-bold px-6 py-2 rounded-bl-2xl">
               BEST VALUE
             </div>
-            <div class="grid md:grid-cols-2 gap-12">
-              <div>
-                <h2 class="font-headline-lg text-headline-md mb-2">Business Plan</h2>
-                <p class="text-secondary font-bold font-label-sm uppercase mb-6 tracking-widest">Save 88% Compared to Competitors</p>
-                <div class="flex items-baseline gap-4 mb-8">
-                  <span class="text-on-surface-variant line-through text-headline-md opacity-50">
-                    {{ currency === 'INR' ? '₹14,999' : '$180' }}
-                  </span>
-                  <span class="text-white font-bold text-headline-lg">
-                    {{ currency === 'INR' ? '₹9,999' : '$120' }}
-                  </span>
-                  <span class="text-on-surface-variant font-body-md">/ Year</span>
+            
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+              <!-- Left Column: Pricing Details and Checklist -->
+              <div class="lg:col-span-7 space-y-8">
+                <div>
+                  <h3 class="text-secondary font-bold font-label-sm uppercase mb-2 tracking-widest">wappCAST Platform</h3>
+                  <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4 text-on-surface">
+                    Everything You Need. One Affordable Platform.
+                  </h2>
+                  <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                    <span class="text-on-surface-variant line-through text-headline-md opacity-50">
+                      {{ currency === 'INR' ? '₹24,499' : '$299' }}
+                    </span>
+                    <span class="text-white font-bold text-headline-lg">
+                      {{ currency === 'INR' ? '₹14,499' : '$179' }}
+                    </span>
+                    <span class="text-on-surface-variant font-body-md">/ Year</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-secondary font-label-sm font-semibold mb-6">
+                    <span>Single License</span> • <span>No Feature Restrictions</span> • <span>No Hidden Costs</span>
+                  </div>
+                  <p class="text-body-md text-primary font-medium flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[20px]">celebration</span> Start Today &amp; Scale Your Business on WhatsApp
+                  </p>
                 </div>
-                <div class="space-y-4 mb-8">
-                  <div class="flex items-center gap-3">
-                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                    <span class="font-body-md text-body-md">Single License</span>
-                  </div>
-                  <div class="flex items-center gap-3">
-                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                    <span class="font-body-md text-body-md">No Feature Restrictions</span>
-                  </div>
-                  <div class="flex items-center gap-3">
-                    <div class="w-2 h-2 bg-primary rounded-full"></div>
-                    <span class="font-body-md text-body-md">No Hidden Costs</span>
+
+                <div class="border-t border-subtle pt-6">
+                  <h4 class="font-headline-sm text-body-lg font-bold mb-4 text-on-surface">What's Included:</h4>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">Unlimited Contacts &amp; Audience Management</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">Unlimited Broadcasting &amp; Campaigns</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">Unlimited Team Members (Seats)</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">No-Code Chatbot &amp; Flow Builder</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">AI Automation &amp; Smart Auto-Replies</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">Team Inbox with Smart Routing</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">Campaign Scheduler &amp; Drip Campaigns</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">CRM Integrations &amp; Webhooks</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">Lead Capture from Click-to-WhatsApp Ads</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">Rich Media Messaging with Tracking</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">Campaign Analytics &amp; Reporting</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">API Access &amp; Developer Tools</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">Free WhatsApp Setup &amp; Onboarding</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">Official WhatsApp Business API</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">Green Tick Verification Assistance</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                      <span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+                      <span class="font-body-md text-on-surface-variant">High-Volume Broadcasting &amp; Retargeting</span>
+                    </div>
                   </div>
                 </div>
-                <NuxtLink to="/contact" class="btn-primary w-full font-body-lg text-body-lg text-on-primary font-bold py-4 rounded-xl mb-4 text-center block">
-                  Get Started Now
-                </NuxtLink>
-                <p class="text-center text-on-surface-variant/60 font-label-sm">Secure Payment. Instant Access.</p>
+
+                <div class="pt-4 flex flex-col sm:flex-row gap-4 items-center">
+                  <NuxtLink to="/demo" target="_blank" class="btn-primary font-body-lg text-body-lg text-on-primary font-bold px-8 py-4 rounded-xl text-center w-full sm:w-auto">
+                    Get Started with Business Plan
+                  </NuxtLink>
+                  <span class="text-on-surface-variant/60 font-label-sm">Secure Activation • Meta Compliant</span>
+                </div>
               </div>
-              <div class="space-y-4">
-                <h3 class="font-headline-sm text-body-lg font-bold mb-4">What's Included:</h3>
-                <div class="grid grid-cols-1 gap-y-2">
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Official WhatsApp Business API</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Unlimited Contacts &amp; Management</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Unlimited Broadcasting &amp; Campaigns</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Unlimited Team Members (Seats)</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Unlimited Multi-Level Flows</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">No-Code Chatbot Builder</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">AI Automation &amp; Smart Replies</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Shared Team Inbox &amp; Mobile App</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Smart Contact Routing</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Campaign Scheduler &amp; Drip Messaging</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Full CRM Integrations (Zoho, Hubspot, etc.)</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Webhooks &amp; API Access</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Developer Tools &amp; Documentation</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Detailed Analytics &amp; Reports</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Green Tick Verification Assist</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Dedicated Success Manager</span></div>
-                  <div class="flex items-start gap-3"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span><span class="font-body-md text-body-md">Zero Per-Message Platform Markup</span></div>
+
+              <!-- Right Column: Visual Dashboard Mockup (Gap Filling Image) -->
+              <div class="lg:col-span-5 relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl group-hover:blur-2xl transition duration-500 opacity-75"></div>
+                <div class="relative glass-card rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-square">
+                  <img src="/pricing_dashboard_mockup.png" alt="wappCAST WhatsApp API Dashboard Mockup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
               </div>
             </div>
@@ -92,19 +157,19 @@
       </div>
     </section>
 
-    <!-- Comparison Table -->
+    <!-- Comparison Section -->
     <section class="py-section-padding">
       <div class="max-w-container-max mx-auto px-gutter">
         <div class="text-center mb-16">
           <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4">Compare Before You Buy</h2>
-          <p class="font-body-lg text-on-surface-variant">We beat every major player in price and flexibility.</p>
+          <p class="font-body-lg text-on-surface-variant">We beat every major player in price, features, and limits.</p>
         </div>
         <div class="overflow-x-auto rounded-3xl border border-subtle glass-card">
           <table class="w-full text-left border-collapse min-w-[1000px]">
             <thead>
               <tr class="border-b border-subtle bg-surface-container">
                 <th class="p-6 font-headline-sm text-body-lg font-bold">Feature</th>
-                <th class="p-6 font-headline-sm text-body-lg font-bold text-primary comparison-col-wappcast">wappCAST</th>
+                <th class="p-6 font-headline-sm text-body-lg font-bold text-primary bg-primary/5">wappCAST</th>
                 <th class="p-6 font-body-md text-body-md text-on-surface-variant/80">AiSensy</th>
                 <th class="p-6 font-body-md text-body-md text-on-surface-variant/80">WATI</th>
                 <th class="p-6 font-body-md text-body-md text-on-surface-variant/80">Interakt</th>
@@ -113,90 +178,84 @@
             </thead>
             <tbody class="divide-y divide-subtle">
               <tr>
-                <td class="p-6 font-body-md font-bold">Annual Cost</td>
-                <td class="p-6 font-body-md font-bold text-primary comparison-col-wappcast">
-                  {{ currency === 'INR' ? '₹9,999' : '$120' }}
+                <td class="p-6 font-body-md font-bold">Annual Cost*</td>
+                <td class="p-6 font-body-md font-bold text-primary bg-primary/5">
+                  {{ currency === 'INR' ? '₹14,499' : '$179' }}
                 </td>
-                <td class="p-6 font-body-md text-on-surface-variant">
-                  {{ currency === 'INR' ? '₹80,000+' : '$960+' }}
-                </td>
-                <td class="p-6 font-body-md text-on-surface-variant">
-                  {{ currency === 'INR' ? '₹85,000+' : '$1020+' }}
-                </td>
-                <td class="p-6 font-body-md text-on-surface-variant">
-                  {{ currency === 'INR' ? '₹48,000+' : '$575+' }}
-                </td>
-                <td class="p-6 font-body-md text-on-surface-variant">
-                  {{ currency === 'INR' ? '₹2,12,000+' : '$2540+' }}
-                </td>
+                <td class="p-6 font-body-md text-on-surface-variant">₹80,000+</td>
+                <td class="p-6 font-body-md text-on-surface-variant">₹85,000+</td>
+                <td class="p-6 font-body-md text-on-surface-variant">₹48,000+</td>
+                <td class="p-6 font-body-md text-on-surface-variant">₹2,12,000+</td>
               </tr>
               <tr>
-                <td class="p-6 font-body-md">No-code builder</td>
-                <td class="p-6 comparison-col-wappcast"><span class="material-symbols-outlined text-primary">check</span></td>
+                <td class="p-6 font-body-md">No-code chat-flow builder</td>
+                <td class="p-6 bg-primary/5 text-primary"><span class="material-symbols-outlined">check</span></td>
                 <td class="p-6"><span class="material-symbols-outlined text-primary">check</span></td>
                 <td class="p-6"><span class="material-symbols-outlined text-primary">check</span></td>
                 <td class="p-6"><span class="material-symbols-outlined text-primary">check</span></td>
                 <td class="p-6"><span class="material-symbols-outlined text-primary">check</span></td>
               </tr>
               <tr>
-                <td class="p-6 font-body-md">Team inbox</td>
-                <td class="p-6 comparison-col-wappcast"><span class="material-symbols-outlined text-primary">check</span></td>
+                <td class="p-6 font-body-md">Team inbox with role-based routing</td>
+                <td class="p-6 bg-primary/5 text-primary"><span class="material-symbols-outlined">check</span></td>
                 <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
                 <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
                 <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
                 <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
               </tr>
               <tr>
-                <td class="p-6 font-body-md">Green tick</td>
-                <td class="p-6 comparison-col-wappcast text-primary font-bold">✓ Free Assist</td>
+                <td class="p-6 font-body-md">Official WhatsApp API + green tick</td>
+                <td class="p-6 bg-primary/5 text-primary font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined">check</span> Free assist
+                </td>
                 <td class="p-6"><span class="material-symbols-outlined text-primary">check</span></td>
-                <td class="p-6 text-on-surface-variant font-body-md">Paid extra</td>
+                <td class="p-6 text-on-surface-variant font-body-md">Paid per country</td>
                 <td class="p-6"><span class="material-symbols-outlined text-primary">check</span></td>
                 <td class="p-6"><span class="material-symbols-outlined text-primary">check</span></td>
               </tr>
               <tr>
                 <td class="p-6 font-body-md">API &amp; webhooks</td>
-                <td class="p-6 comparison-col-wappcast"><span class="material-symbols-outlined text-primary">check</span></td>
-                <td class="p-6 text-on-surface-variant font-body-md">Limited</td>
-                <td class="p-6 text-on-surface-variant font-body-md">Limited</td>
-                <td class="p-6 text-on-surface-variant font-body-md">Advanced only</td>
-                <td class="p-6"><span class="material-symbols-outlined text-primary">check</span></td>
-              </tr>
-              <tr>
-                <td class="p-6 font-body-md">CRM</td>
-                <td class="p-6 comparison-col-wappcast"><span class="material-symbols-outlined text-primary">check</span></td>
+                <td class="p-6 bg-primary/5 text-primary"><span class="material-symbols-outlined">check</span></td>
                 <td class="p-6"><span class="material-symbols-outlined text-primary">check</span></td>
                 <td class="p-6"><span class="material-symbols-outlined text-primary">check</span></td>
                 <td class="p-6"><span class="material-symbols-outlined text-primary">check</span></td>
                 <td class="p-6"><span class="material-symbols-outlined text-primary">check</span></td>
               </tr>
               <tr>
-                <td class="p-6 font-body-md">Unlimited seats</td>
-                <td class="p-6 comparison-col-wappcast"><span class="material-symbols-outlined text-primary">check</span></td>
+                <td class="p-6 font-body-md">CRM &amp; contact management</td>
+                <td class="p-6 bg-primary/5 text-primary"><span class="material-symbols-outlined">check</span></td>
+                <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
+                <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
+                <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
+                <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
+              </tr>
+              <tr>
+                <td class="p-6 font-body-md">Unlimited team seats</td>
+                <td class="p-6 bg-primary/5 text-primary"><span class="material-symbols-outlined">check</span></td>
                 <td class="p-6 text-on-surface-variant font-body-md">5 free, then paid</td>
                 <td class="p-6 text-on-surface-variant font-body-md">Paid add-on</td>
                 <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
                 <td class="p-6 text-on-surface-variant font-body-md">6, then paid</td>
               </tr>
               <tr>
-                <td class="p-6 font-body-md">Unlimited flows</td>
-                <td class="p-6 comparison-col-wappcast"><span class="material-symbols-outlined text-primary">check</span></td>
-                <td class="p-6 text-on-surface-variant font-body-md">Credit-based</td>
-                <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
+                <td class="p-6 font-body-md">Unlimited automation flows</td>
+                <td class="p-6 bg-primary/5 text-primary"><span class="material-symbols-outlined">check</span></td>
+                <td class="p-6 text-on-surface-variant font-body-md">Advanced bot paid</td>
+                <td class="p-6 text-on-surface-variant font-body-md">Capped by plan</td>
                 <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
                 <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
               </tr>
               <tr>
-                <td class="p-6 font-body-md">AI automation</td>
-                <td class="p-6 comparison-col-wappcast"><span class="material-symbols-outlined text-primary">check</span></td>
-                <td class="p-6 text-on-surface-variant font-body-md">Paid add-on</td>
-                <td class="p-6 text-on-surface-variant font-body-md">Paid add-on</td>
-                <td class="p-6 text-on-surface-variant font-body-md">Basic</td>
-                <td class="p-6 text-on-surface-variant font-body-md">Paid add-on</td>
+                <td class="p-6 font-body-md">AI automation without add-on fees</td>
+                <td class="p-6 bg-primary/5 text-primary"><span class="material-symbols-outlined">check</span></td>
+                <td class="p-6 text-on-surface-variant font-body-md">Add-on / capped</td>
+                <td class="p-6 text-on-surface-variant font-body-md">Credit-capped</td>
+                <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
+                <td class="p-6 text-on-surface-variant font-body-md">Plan-based</td>
               </tr>
               <tr>
                 <td class="p-6 font-body-md">Zero template markup</td>
-                <td class="p-6 comparison-col-wappcast"><span class="material-symbols-outlined text-primary">check</span></td>
+                <td class="p-6 bg-primary/5 text-primary"><span class="material-symbols-outlined">check</span></td>
                 <td class="p-6"><span class="material-symbols-outlined text-primary">check</span></td>
                 <td class="p-6 text-error-red"><span class="material-symbols-outlined">close</span> (~20%)</td>
                 <td class="p-6 text-error-red"><span class="material-symbols-outlined">close</span> (~25%)</td>
@@ -208,43 +267,23 @@
       </div>
     </section>
 
-    <!-- Lifetime License Section -->
+    <!-- Lifetime License Section (Reseller/Agency) -->
     <section class="py-section-padding bg-surface-container-highest relative">
       <div class="max-w-container-max mx-auto px-gutter relative z-10">
         <div class="glass-card rounded-3xl p-8 md:p-16 border-t border-primary/20">
           <div class="max-w-4xl">
             <span class="inline-block bg-secondary/20 text-secondary px-4 py-1 rounded-full font-label-sm mb-6">AGENCY &amp; CONSULTANT SPECIAL</span>
-            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6">Need Unlimited Everything? <span class="text-secondary">Lifetime License</span> for Personal Use &amp; Reselling</h2>
-            <div class="flex items-baseline gap-4 mb-8">
-              <span class="text-on-surface-variant line-through text-headline-md opacity-50">
-                {{ currency === 'INR' ? '₹24,999' : '$299' }}
-              </span>
-              <span class="text-white font-bold text-headline-lg">
-                {{ currency === 'INR' ? '₹14,999' : '$179' }}
-              </span>
-              <span class="text-secondary font-body-lg">One-Time Payment</span>
-            </div>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4 text-on-surface">
+              Need Unlimited Everything?
+            </h2>
+            <h3 class="text-secondary font-bold text-headline-sm mb-6">
+              Lifetime license for your own use and for reselling to clients.
+            </h3>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
-              Perfect for freelancers, agencies, consultants, SaaS companies, resellers, and digital marketing professionals. Pay Once. Use Forever.
+              Built for freelancers, agencies, consultants, SaaS companies, and digital marketing professionals.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 mb-12">
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">star</span><span class="font-body-md">No wappCAST Branding</span></div>
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">groups</span><span class="font-body-md">Reseller Capability Included</span></div>
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">add_business</span><span class="font-body-md">Add Unlimited Clients</span></div>
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">hub</span><span class="font-body-md">Agency Dashboard</span></div>
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">payments</span><span class="font-body-md">Keep 100% of Your Revenue</span></div>
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">update_disabled</span><span class="font-body-md">No Recurring Annual Fee</span></div>
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">speed</span><span class="font-body-md">High Velocity Broadcasts</span></div>
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">security</span><span class="font-body-md">Dedicated Infrastructure</span></div>
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">api</span><span class="font-body-md">Advanced Webhook Controls</span></div>
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">construction</span><span class="font-body-md">Custom Workflow Hooks</span></div>
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">contact_support</span><span class="font-body-md">Priority 24/7 Support</span></div>
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">school</span><span class="font-body-md">Marketing Training Material</span></div>
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">badge</span><span class="font-body-md">White-Label Client Reports</span></div>
-              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-secondary">auto_mode</span><span class="font-body-md">Automated Billing Assist</span></div>
-            </div>
             <NuxtLink to="/contact" class="bg-secondary text-on-secondary font-bold font-body-lg px-12 py-4 rounded-xl hover:shadow-[0_0_30px_rgba(69,223,164,0.3)] transition-all text-center inline-block">
-              Claim Lifetime Access
+              Contact Us →
             </NuxtLink>
           </div>
         </div>
@@ -257,8 +296,9 @@
         <div class="text-center mb-16">
           <span class="text-primary font-bold tracking-widest uppercase text-label-sm font-label-sm block mb-4">Pricing FAQ</span>
           <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4 text-on-surface">Frequently Asked Questions</h2>
-          <p class="font-body-lg text-on-surface-variant">Everything you need to know about wappCAST pricing.</p>
+          <p class="font-body-lg text-on-surface-variant">Everything you need to know about wappCAST pricing and structure.</p>
         </div>
+        
         <div class="space-y-4">
           <!-- FAQ Items -->
           <div v-for="(faq, idx) in pricingFaqs" :key="idx" class="glass-card rounded-2xl overflow-hidden border border-border-subtle/50 transition-all duration-300 hover:border-primary/30">
@@ -303,19 +343,19 @@ const toggleFaq = (idx) => {
   }
 }
 
-// Production-grade SEO setup for pricing page
+// SEO Meta Config
 useSeoMeta({
   title: 'Simple & Transparent Pricing Plans | wappCAST',
   ogTitle: 'Simple & Transparent Pricing Plans | wappCAST',
   description: 'Find the perfect WhatsApp Business API plan for your brand. Save up to 88% compared to WATI, AiSensy, and Interakt. No hidden markup fees.',
   ogDescription: 'Find the perfect WhatsApp Business API plan for your brand. Save up to 88% compared to WATI, AiSensy, and Interakt. No hidden markup fees.',
-  ogImage: 'https://lh3.googleusercontent.com/aida/AP1WRLvBm6HYqeC9TQ7OuzyJrYLxmVJY7kKuSgaj1fM-ElKpd2y0DsbT-eKviLtFqyWUM3b1IXB1TXyH4blMeGvurxSa45-M8iiwOIaemuz4kGVgJZgzktw0jfAcG6Y1Q9n2UyeFTucq0I8wTXAupJDMX7mQKy1Ug7pYk36Jukf6VTc5Tlym3ZyxIA2GPY4OuyVyXyNZ4wRxGpjwcPGr8DD5M0hf40ScRCx2V-o8TRreZt-XC0dFGPsfH0pM_DTe',
+  ogImage: 'https://wappcast.com/pricing_dashboard_mockup.png',
   ogUrl: 'https://wappcast.com/pricing',
   ogType: 'website',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Simple & Transparent Pricing Plans | wappCAST',
   twitterDescription: 'Find the perfect WhatsApp Business API plan for your brand. Save up to 88% compared to WATI, AiSensy, and Interakt. No hidden markup fees.',
-  twitterImage: 'https://lh3.googleusercontent.com/aida/AP1WRLvBm6HYqeC9TQ7OuzyJrYLxmVJY7kKuSgaj1fM-ElKpd2y0DsbT-eKviLtFqyWUM3b1IXB1TXyH4blMeGvurxSa45-M8iiwOIaemuz4kGVgJZgzktw0jfAcG6Y1Q9n2UyeFTucq0I8wTXAupJDMX7mQKy1Ug7pYk36Jukf6VTc5Tlym3ZyxIA2GPY4OuyVyXyNZ4wRxGpjwcPGr8DD5M0hf40ScRCx2V-o8TRreZt-XC0dFGPsfH0pM_DTe',
+  twitterImage: 'https://wappcast.com/pricing_dashboard_mockup.png',
   robots: 'index, follow'
 })
 
@@ -336,55 +376,47 @@ useSchemaOrg([
 // Open Graph Social Preview Image
 defineOgImageComponent('NuxtSeo', {
   title: 'wappCAST Pricing Plans',
-  description: 'Smarter WhatsApp API solutions starting at just ₹9,999/year. Zero markup fees, unlimited broadcasts.',
+  description: 'Smarter WhatsApp API solutions starting at just ₹14,499/year. Zero markup fees, unlimited broadcasts.',
   theme: '#10b981',
   colorMode: 'dark'
 })
 
 const pricingFaqs = [
   {
-    question: "Is the listed price the total yearly cost?",
-    answer: "Yes, the platform fee covers your full access to the wappCAST platform. There are no additional per-user or hidden feature fees from our side."
+    question: "Is ₹14,499 the total yearly cost?",
+    answer: "Yes. Your wappCAST subscription costs only ₹14,499 per year. WhatsApp conversation charges from Meta are billed separately based on usage."
   },
   {
-    question: "Are there restrictions on contacts or broadcasts?",
-    answer: "No. wappCAST provides unlimited contact management and unlimited broadcasting. You only pay for the Meta conversation charges which go directly to WhatsApp."
+    question: "Are there any restrictions on contacts?",
+    answer: "No. You can manage unlimited contacts and audience lists."
   },
   {
-    question: "Is the WhatsApp API included?",
-    answer: "Yes, we provide full access to the Official WhatsApp Business API. We assist you through the entire onboarding process."
+    question: "Can I send unlimited broadcasts?",
+    answer: "Yes. There are no platform-imposed limits on broadcasting."
   },
   {
-    question: "How does the Lifetime Reseller License work?",
-    answer: "The lifetime license is a one-time payment that gives you agency capabilities. You can add your own clients, remove our branding, and charge them whatever you like. You keep 100% of the revenue you generate."
+    question: "Can multiple team members use the platform?",
+    answer: "Yes. The Business Plan includes unlimited team seats."
   },
   {
-    question: "What are Meta conversation charges?",
-    answer: "These are fees charged by Meta per conversation (24-hour window). wappCAST does not add any markup on these. You pay exactly what Meta charges."
+    question: "Is WhatsApp API included?",
+    answer: "Yes. The platform is built for the Official WhatsApp Business API."
   },
   {
-    question: "Can I integrate with my existing CRM?",
-    answer: "Absolutely. We support direct integrations with major CRMs like Zoho, HubSpot, and Salesforce, and offer webhooks/APIs for custom systems."
+    question: "Do you help with WhatsApp onboarding?",
+    answer: "Absolutely. Our team assists with setup, verification, and onboarding."
   },
   {
-    question: "Do you help with the Green Tick verification?",
-    answer: "Yes, we provide free assistance and guidance for the Green Tick application process. While Meta makes the final decision, we ensure your application follows all best practices."
+    question: "Can you help me get the Green Tick?",
+    answer: "Yes. We guide eligible businesses through the Green Tick verification process."
   },
   {
-    question: "Is there a mobile app for the team inbox?",
-    answer: "Yes, wappCAST offers a mobile application so your support and sales teams can respond to messages on the go."
+    question: "Can I sell the platform to my own clients?",
+    answer: "Yes. The Lifetime License is designed specifically for agencies and resellers."
   },
   {
-    question: "How many team members can I add?",
-    answer: "You can add unlimited team members (seats) at no extra cost. We don't believe in charging you more just because your team is growing."
-  },
-  {
-    question: "Is there a setup fee?",
-    answer: "Zero. We do not charge any setup or onboarding fees. Your subscription covers everything you need to get started."
-  },
-  {
-    question: "What kind of support do you provide?",
-    answer: "We provide comprehensive support via WhatsApp, email, and live Zoom calls for technical setup and strategy."
+    question: "Is technical support included?",
+    answer: "Yes, onboarding and ongoing platform support are included."
   }
 ]
 </script>
