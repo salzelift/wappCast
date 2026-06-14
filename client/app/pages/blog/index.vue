@@ -30,13 +30,20 @@
         <!-- Categories -->
         <div class="flex flex-wrap items-center gap-3">
           <button 
-            v-for="cat in categories" 
-            :key="cat"
+            @click="selectedCategory = null"
+            class="px-5 py-2 rounded-full font-semibold text-label-sm transition-all cursor-pointer"
+            :class="!selectedCategory ? 'bg-primary text-on-primary-container' : 'border border-subtle hover:border-primary/50 text-on-surface-variant hover:text-on-surface'"
+          >
+            All
+          </button>
+          <button 
+            v-for="cat in categoriesList" 
+            :key="cat.id"
             @click="selectedCategory = cat"
             class="px-5 py-2 rounded-full font-semibold text-label-sm transition-all cursor-pointer"
-            :class="selectedCategory === cat ? 'bg-primary text-on-primary-container' : 'border border-subtle hover:border-primary/50 text-on-surface-variant hover:text-on-surface'"
+            :class="selectedCategory && selectedCategory.id === cat.id ? 'bg-primary text-on-primary-container' : 'border border-subtle hover:border-primary/50 text-on-surface-variant hover:text-on-surface'"
           >
-            {{ cat }}
+            {{ cat.name }}
           </button>
         </div>
       </div>
@@ -54,27 +61,28 @@
             <img 
               :alt="post.title" 
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
-              :src="post.image"
+              :src="getImageUrl(post.image_url)"
+              @error="(e) => e.target.src = TEMPLATE_IMAGE"
             />
             <div class="absolute top-4 left-4">
               <span class="bg-primary/20 backdrop-blur-md text-primary px-3 py-1 rounded-lg text-[12px] font-bold border border-primary/30 uppercase">
-                {{ post.category }}
+                {{ categoriesMap[post.category_id] || 'General' }}
               </span>
             </div>
           </div>
           <div class="p-6 flex-grow flex flex-col">
             <div class="flex items-center gap-2 text-on-surface-variant text-label-sm font-label-sm mb-3">
               <span class="material-symbols-outlined text-[16px]">calendar_today</span>
-              <span>{{ post.date }}</span>
+              <span>{{ formatDate(post.created_at) }}</span>
               <span class="mx-1">•</span>
               <span class="material-symbols-outlined text-[16px]">schedule</span>
-              <span>{{ post.readTime }}</span>
+              <span>{{ getReadTime(post.time_to_read) }}</span>
             </div>
             <h3 class="text-headline-md font-headline-md mb-4 text-on-surface leading-tight group-hover:text-primary transition-colors">
               {{ post.title }}
             </h3>
             <p class="text-body-md font-body-md text-on-surface-variant mb-6 line-clamp-3">
-              {{ post.excerpt }}
+              {{ post.description }}
             </p>
             <div class="mt-auto">
               <NuxtLink :to="`/blog/${post.slug}`" class="inline-flex items-center gap-2 text-primary font-bold group/link">
@@ -94,16 +102,32 @@
       </div>
 
       <!-- Pagination -->
-      <div v-if="filteredPosts.length > 0" class="mt-16 flex items-center justify-center gap-2">
-        <button class="w-10 h-10 rounded-lg border border-subtle flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all cursor-pointer">
+      <div v-if="totalPages > 1 && filteredPosts.length > 0" class="mt-16 flex items-center justify-center gap-2">
+        <button 
+          :disabled="currentPage === 1"
+          @click="currentPage > 1 && (currentPage--)"
+          class="w-10 h-10 rounded-lg border border-subtle flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+        >
           <span class="material-symbols-outlined">chevron_left</span>
         </button>
-        <button class="w-10 h-10 rounded-lg bg-primary text-on-primary-container font-bold cursor-pointer">1</button>
-        <button class="w-10 h-10 rounded-lg border border-subtle text-on-surface-variant hover:border-primary hover:text-primary transition-all cursor-pointer">2</button>
-        <button class="w-10 h-10 rounded-lg border border-subtle text-on-surface-variant hover:border-primary hover:text-primary transition-all cursor-pointer">3</button>
-        <span class="text-on-surface-variant mx-2">...</span>
-        <button class="w-10 h-10 rounded-lg border border-subtle text-on-surface-variant hover:border-primary hover:text-primary transition-all cursor-pointer">8</button>
-        <button class="w-10 h-10 rounded-lg border border-subtle flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all cursor-pointer">
+        
+        <template v-for="(page, idx) in displayedPages" :key="idx">
+          <span v-if="page === '...'" class="text-on-surface-variant mx-2">...</span>
+          <button 
+            v-else
+            @click="currentPage = page"
+            class="w-10 h-10 rounded-lg font-bold cursor-pointer transition-all"
+            :class="currentPage === page ? 'bg-primary text-on-primary-container' : 'border border-subtle text-on-surface-variant hover:border-primary hover:text-primary'"
+          >
+            {{ page }}
+          </button>
+        </template>
+        
+        <button 
+          :disabled="currentPage === totalPages"
+          @click="currentPage < totalPages && (currentPage++)"
+          class="w-10 h-10 rounded-lg border border-subtle flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+        >
           <span class="material-symbols-outlined">chevron_right</span>
         </button>
       </div>
@@ -135,12 +159,193 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
-const searchQuery = ref('')
-const selectedCategory = ref('All')
-const emailAddress = ref('')
-const isSubscribed = ref(false)
+const route = useRoute()
+const router = useRouter()
+
+// Fetch categories from Backend
+const { data: categoriesResponse } = await useFetch('http://localhost:8000/api/categories')
+const categoriesList = computed(() => categoriesResponse.value?.data || [])
+
+// Match URL category query on load
+const initialCategory = categoriesList.value.find(c => c.slug === route.query.category) || null
+const selectedCategory = ref(initialCategory)
+const searchQuery = ref(route.query.search || '')
+const currentPage = ref(Number(route.query.page) || 1)
+
+// Sync URL query params with state changes (Back/Forward browser buttons support)
+watch(() => route.query, (newQuery) => {
+  searchQuery.value = newQuery.search || ''
+  currentPage.value = Number(newQuery.page) || 1
+  
+  if (newQuery.category) {
+    const match = categoriesList.value.find(c => c.slug === newQuery.category)
+    selectedCategory.value = match || null
+  } else {
+    selectedCategory.value = null
+  }
+}, { deep: true })
+
+// Push state changes to route query parameters
+watch([selectedCategory, currentPage, searchQuery], () => {
+  const nextQuery = {}
+  
+  if (selectedCategory.value) {
+    nextQuery.category = selectedCategory.value.slug
+  }
+  
+  if (currentPage.value > 1) {
+    nextQuery.page = String(currentPage.value)
+  }
+  
+  if (searchQuery.value) {
+    nextQuery.search = searchQuery.value
+  }
+  
+  // Compare to avoid infinite routing updates
+  const hasChanged = 
+    nextQuery.category !== route.query.category ||
+    nextQuery.page !== (route.query.page || undefined) ||
+    nextQuery.search !== (route.query.search || undefined)
+    
+  if (hasChanged) {
+    router.push({
+      path: route.path,
+      query: nextQuery
+    })
+  }
+})
+
+// Map category IDs to names for O(1) lookups in template
+const categoriesMap = computed(() => {
+  const map = {}
+  categoriesList.value.forEach(c => {
+    map[c.id] = c.name
+  })
+  return map
+})
+
+// Build computed Fetch URL and Parameters based on selection
+const fetchUrl = computed(() => {
+  if (selectedCategory.value) {
+    return `http://localhost:8000/api/categories/${selectedCategory.value.slug}`
+  }
+  return `http://localhost:8000/api/blogs`
+})
+
+const fetchParams = computed(() => {
+  const params = {
+    page: currentPage.value
+  }
+  if (searchQuery.value) {
+    params.search = searchQuery.value
+  }
+  return params
+})
+
+// Reactively fetch blogs
+const { data: blogsResponse } = await useFetch(fetchUrl, {
+  query: fetchParams,
+  watch: [fetchUrl, fetchParams]
+})
+
+// Reset current page when category filter or search input changes
+watch([selectedCategory, searchQuery], () => {
+  currentPage.value = 1
+})
+
+// Determine root arrays and pagination metadata depending on category selection
+const posts = computed(() => {
+  if (!blogsResponse.value) return []
+  if (selectedCategory.value) {
+    return blogsResponse.value.blogs?.data || []
+  }
+  return blogsResponse.value.data || []
+})
+
+const paginationMeta = computed(() => {
+  if (!blogsResponse.value) return null
+  if (selectedCategory.value) {
+    return blogsResponse.value.blogs
+  }
+  return blogsResponse.value.meta
+})
+
+// Client-side search fallback when inside a selected category (backend does not filter categories by search query)
+const filteredPosts = computed(() => {
+  const allPosts = posts.value
+  if (!selectedCategory.value || !searchQuery.value) {
+    return allPosts
+  }
+  const query = searchQuery.value.toLowerCase()
+  return allPosts.filter(p => 
+    (p.title && p.title.toLowerCase().includes(query)) ||
+    (p.description && p.description.toLowerCase().includes(query))
+  )
+})
+
+// Pagination logic
+const totalPages = computed(() => paginationMeta.value?.last_page || 1)
+
+const displayedPages = computed(() => {
+  const current = currentPage.value
+  const last = totalPages.value
+  const delta = 2
+  const range = []
+  const rangeWithDots = []
+  let l
+  
+  for (let i = 1; i <= last; i++) {
+    if (i === 1 || i === last || (i >= current - delta && i <= current + delta)) {
+      range.push(i)
+    }
+  }
+  
+  for (const i of range) {
+    if (l) {
+      if (i - l === 2) {
+        rangeWithDots.push(l + 1)
+      } else if (i - l > 2) {
+        rangeWithDots.push('...')
+      }
+    }
+    rangeWithDots.push(i)
+    l = i
+  }
+  
+  return rangeWithDots
+})
+
+const TEMPLATE_IMAGE = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCikwuipb4tcY_c7NHAwPgVtPx2MhR4O5mtElbALZ6nM-pNwpAMVlEnXOtvA6G8XP9pJj7U3gpRfSFrkL9nKcDIoy1E9PZO7T1CfBUIUOO9wwmApHk20mmUdECqRYtVz4zpc8S8xfW5QAjraquycO5f0rkSEH2lin5eLKPkvKTnFLem_5MBK3-tqXgClikXMG9BevpK-60Mc1oAZZgA3CllK2keaOcEnEPvwBIjYBDBN1CCy5wQwv6myS5EHmbW52AxFjgYcC3AOzAY'
+
+// Helper: Format image URLs
+const getImageUrl = (url) => {
+  if (!url) return TEMPLATE_IMAGE
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url
+  }
+  return `http://localhost:8000/storage/${url}`
+}
+
+// Helper: Format date
+const formatDate = (dateStr) => {
+  if (!dateStr) return ''
+  const date = new Date(dateStr)
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric'
+  })
+}
+
+// Helper: Format read time
+const getReadTime = (time) => {
+  if (!time) return '5 min read'
+  if (time > 100) return '5 min read'
+  return `${time} min read`
+}
 
 // Production-grade SEO setup for blog listing page
 useSeoMeta({
@@ -180,8 +385,6 @@ defineOgImageComponent('NuxtSeo', {
   colorMode: 'dark'
 })
 
-const categories = ['All', 'Automation', 'Meta API', 'Marketing', 'Productivity', 'Case Study', 'Developer', 'Compliance', 'Ecommerce']
-
 const subscribeNewsletter = () => {
   isSubscribed.value = true
   setTimeout(() => {
@@ -189,70 +392,4 @@ const subscribeNewsletter = () => {
     isSubscribed.value = false
   }, 3000)
 }
-
-const posts = [
-  {
-    title: "How the Official WhatsApp API Can 10x Your Reply Rates",
-    slug: "how-whatsapp-api-can-10x-reply-rates",
-    category: "Meta API",
-    date: "Oct 24, 2024",
-    readTime: "5 min read",
-    excerpt: "Stop getting lost in cluttered email inboxes. Learn how businesses are achieving 98% open rates and instant customer engagement using wappCAST's official Meta solutions.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCikwuipb4tcY_c7NHAwPgVtPx2MhR4O5mtElbALZ6nM-pNwpAMVlEnXOtvA6G8XP9pJj7U3gpRfSFrkL9nKcDIoy1E9PZO7T1CfBUIUOO9wwmApHk20mmUdECqRYtVz4zpc8S8xfW5QAjraquycO5f0rkSEH2lin5eLKPkvKTnFLem_5MBK3-tqXgClikXMG9BevpK-60Mc1oAZZgA3CllK2keaOcEnEPvwBIjYBDBN1CCy5wQwv6myS5EHmbW52AxFjgYcC3AOzAY"
-  },
-  {
-    title: "Building a Sales Machine on WhatsApp: A Complete Guide",
-    slug: "building-sales-machine-whatsapp",
-    category: "Automation",
-    date: "Oct 18, 2024",
-    readTime: "8 min read",
-    excerpt: "From lead generation to final checkout, discover how to automate your entire sales funnel within WhatsApp. No code required, just smart conversation flows.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDe1ExVtULCGNUlfB6SFkd5EIIOTyTuIZkeKHKTKZ1hZUnFqHVJBGZp7_PXAgDf80jOGPim_BMpSlb8AbnLpEF8p40H-t5u4mSfe7Y_Zc7zTQFx-LbKii6YtuD0uRObMv6HKk-0BKt5qr7asB0qlZ_B6shF1POxKV3l8sLY6ICvUyTvJr_HP56HM1EG9e-Tu2XBp00Q2zEf74yOeZq4Mm0tGioWpr37VOL370dFTQhCL6jlbJkP8l781RtaRLKxhXSDf-yMZxVcWIVl"
-  },
-  {
-    title: "Zero Missed Leads: How Real Estate Firms Scale with wappCAST",
-    slug: "zero-missed-leads-real-estate",
-    category: "Case Study",
-    date: "Oct 12, 2024",
-    readTime: "6 min read",
-    excerpt: "See how our unified team inbox helped a leading real estate agency manage 5,000+ monthly inquiries without missing a single potential buyer.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDHNxiB9EbYf-lpIskrrA4xUotAKMmgVSTzEUsuM4yS6iTKGvhrS3N7g1xJo05jX4zOZQE78LuKUooNuuIhmuxAzH4Bcl1ezT4UKALG6AniznQvhZ1ZSXzlAQ17AodCDn9oUukJq8EqKYMjUIcIQ_IHQGcOIfJHYkJ6eorKLQk1DpdfG-BPJ-0qapCnRZUpZa-mVJeSc0SvbVqnwTkH7lNnCJ4K1m35dkfrknRyvz7rxGjL9BgMC65TTAHr3kVFPAfu3Yh8zxbRvhWT"
-  },
-  {
-    title: "Mastering Webhooks: Real-time Integration with wappCAST",
-    slug: "mastering-webhooks-real-time-integration",
-    category: "Developer",
-    date: "Sep 28, 2024",
-    readTime: "10 min read",
-    excerpt: "A technical deep dive for developers on how to sync your CRM and external databases with WhatsApp messaging events seamlessly.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDp6-Kpuhw_Jf1WjykotvbvlJjMVhPM9ZLAjzZr9wl6CJ-dF-zRM-YeUzMA7_iLAMzD0uhjbFcTvsIk1l9wTX1kviEd9LqwD8Jf6ohZQttHWF0hlaSk1913xlthFaRiybAVn9pBu7FoI2y_-BHjX0QIidszOdLzR0qiIEU8MdMFqcH-xODYUkC6T8SyyLrYLutQDhfYY22uvHZM2i_Qe_FpIURtzvFH9_at374n_enEUXSmPDQsEqsvD5sbfjuW1HatBNZzMvIhkYET"
-  },
-  {
-    title: "Ban-Proof Your Marketing: The Official API Advantage",
-    slug: "ban-proof-your-marketing-official-api",
-    category: "Compliance",
-    date: "Sep 15, 2024",
-    readTime: "4 min read",
-    excerpt: "Why unofficial workarounds get you banned and how the Meta-approved Business API protects your number and brand reputation.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBV5Nvut7Dz2tp_qmCwjSUxdrM5Nr8e21cwC2BZaIFxDK6nWxeK8IJAtGoXXzVTr7tpuIqhmjQumzBu-Hqblp3sfw0OYXEItnDKbqksFZLH_go5zRvkVzlg5cXWSqL33jXZpwfboBnEdH8eeQCe6pkmkrIHV-NJmRsI7srNnYYOipHzjFY6cGZ2-kJX_Ep2x19loflKK5I84mukfdCJKVsEHZ8UL2O55-X9IgwTlcOeCh-0bhIozH8xb0TZ9L-zNeJuNeVWtLZfAwiG"
-  },
-  {
-    title: "Transforming WhatsApp into a Shoppable Experience",
-    slug: "transforming-whatsapp-shoppable-experience",
-    category: "Ecommerce",
-    date: "Sep 02, 2024",
-    readTime: "7 min read",
-    excerpt: "How to set up catalogs, manage orders, and collect payments without ever leaving the chat interface. The future of mobile commerce.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCRONGQRCVZwunwmT6HRI_UwgD7uqv6Kds7SyLKAPyKKS5fCEvKPnpt-4RqcILssdylJonqFKf5Y30XrAgtNT1Tq4JzH5h1XrzEkP3Vi6PuzSP3tQjR1SOydE3QLJI1cgvj4pzAQrP9DXnGctFcjjf4hFQIXUQRS1jlnZDFZC8H41cTchEORSbxSvm5hzBW7cye242-bDOC4fZjz2g-LfciE9ANYOdryuDvfEr34TVD5AusJt4hG8MSeMHjXQqFYeWwvPS30fMJ5Fax"
-  }
-]
-
-const filteredPosts = computed(() => {
-  return posts.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchQuery.value.toLowerCase()) || 
-                          post.excerpt.toLowerCase().includes(searchQuery.value.toLowerCase())
-    const matchesCategory = selectedCategory.value === 'All' || post.category === selectedCategory.value
-    return matchesSearch && matchesCategory
-  })
-})
 </script>

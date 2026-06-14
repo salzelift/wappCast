@@ -133,16 +133,9 @@
                                 <p class="text-[11px] text-gray-400 mt-0.5">PNG, JPG or WEBP, up to 2MB</p>
                             </div>
                         </div>
-                        <input type="file" id="image" name="image" accept="image/png,image/jpeg,image/jpg,image/webp" class="hidden" {{ isset($blog) ? '' : 'required' }}>
+                        <input type="file" id="image" name="image_url" accept="image/png,image/jpeg,image/jpg,image/webp" class="hidden" />
                     </label>
-                    @error('image') <p class="text-xs text-red-600">{{ $message }}</p> @enderror
-
-                    @if(isset($blog) && $blog->image_url)
-                        <label class="flex items-center gap-2 text-xs text-gray-500">
-                            <input type="checkbox" id="remove_image" name="remove_image" value="1" class="rounded border-gray-300 text-red-600 focus:ring-red-500">
-                            Remove current image
-                        </label>
-                    @endif
+                    @error('image_url') <p class="text-xs text-red-600">{{ $message }}</p> @enderror
                 </div>
 
             </div>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'Admin Portal' }}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gray-50 font-sans antialiased text-gray-900">
 
@@ -52,7 +52,7 @@
     </aside>
 
     <main class="flex-1 min-w-0 flex flex-col ml-64">
-        <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-end px-8 shadow-sm fixed top-0 w-screen z-100">
+        <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-end px-8 shadow-sm fixed top-0 w-[calc(100vw-16rem)]">
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-sm font-bold text-indigo-700">
                     {{ substr(Auth::user()->name ?? 'A', 0, 1) }}
@@ -61,7 +61,7 @@
             </div>
         </header>
 
-        <div class="p-6 md:p-10 max-w-8xl w-full mx-auto m-16">
+        <div class="p-6 md:p-10 max-w-10xl w-full mx-auto m-16">
             {{ $slot }}
         </div>
     </main>

@@ -8,6 +8,7 @@ use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -15,15 +16,32 @@ class BlogController extends Controller
 
     private function deleteImage(?string $path): void
     {
-        if ($path && Storage::disk('public')->exists($path)) {
-            Storage::disk('public')->delete($path);
+        if ($path && Storage::disk("blogs", 'public')->exists($path)) {
+            Storage::disk("blogs", 'public')->delete($path);
         }
     }
 
     public function index()
     {
-        $blogs = Blog::latest()->paginate(10);
+        $blogs = Blog::with('category')->latest()->paginate(10);
         return view('admin.content.blogs', compact('blogs'));
+    }
+
+    public function apiIndex(Request $request)
+    {
+        $search = $request->query('search');
+        $query = Blog::latest();
+        if(!empty($search)) {
+            $query->where(function ($q) use ($search){
+                $q->where('title', 'like', '%'.$search.'%')
+                    ->orWhere('content', 'like', '%'.$search.'%')
+                    ->orWhere('slug', 'like', '%'.$search.'%')
+                    ->orWhere('description', 'like', '%'.$search.'%')
+                    ->orWhereJsonContains('tags', $search);
+            });
+        }
+        $blogs = $query->paginate(10);
+        return BlogResource::collection($blogs);
     }
 
     public function create()
@@ -35,7 +53,10 @@ class BlogController extends Controller
     public function store(BlogRequest $request)
     {
         $data = $request->validated();
-        $data['image_url'] = $request->file('image')->store('public');
+        if ($request->hasFile('image_url')) {
+            $data['image_url'] = $request->file('image_url')->store('blogs', 'public');
+        }
+        $data['tags'] = array_map('trim', explode(',', $request->tags));
         Blog::create($data);
         return redirect()->route('admin.content.blogs')->with('success', 'Blog created successfully');
     }
@@ -43,6 +64,11 @@ class BlogController extends Controller
     public function show(Blog $blog)
     {
         return view('admin.content.blog-show', compact('blog'));
+    }
+
+    public function apiShow(Blog $blog)
+    {
+        return new BlogResource($blog->load('category'));
     }
 
     public function edit(Blog $blog)
@@ -54,13 +80,10 @@ class BlogController extends Controller
     public function update(BlogRequest $request, Blog $blog)
     {
         $data = $request->validated();
-        if ($request->hasFile('image')) {
-            $this->deleteImage($blog->image_url);
-            $data['image_url'] = $request->file('image')->store('public');
-        } elseif ($request->boolean('remove_image')) {
-            $this->deleteImage($blog->image_url);
-            $data['image_url'] = null;
+        if ($request->hasFile('image_url')) {
+            $data['image_url'] = $request->file('image_url')->store('blogs', 'public');
         }
+        $data['tags'] = array_map('trim', explode(',', $request->tags));
 
         $blog->update($data);
 

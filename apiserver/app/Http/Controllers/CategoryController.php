@@ -17,6 +17,11 @@ class CategoryController extends Controller
         return view('admin.content.categories', compact('categories'));
     }
 
+    public function apiIndex()
+    {
+        return CategoryResource::collection(Category::all());
+    }
+
     public function store(CategoryRequest $request)
     {
         $category =  new CategoryResource(Category::create($request->validated()));
@@ -28,6 +33,15 @@ class CategoryController extends Controller
     {
         $blogs = $category->blogs()->paginate(10);
         return view('admin.content.category-show', compact('category', 'blogs'));
+    }
+
+    public function apiShow(Category $category)
+    {
+        $blogs = $category->blogs()->paginate(10);
+        return response()->json([
+            'category'=> $category,
+            'blogs'=> $blogs
+        ]);
     }
 
     public function edit(Category $category)

@@ -40,7 +40,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::post('/content/blogs/store', [BlogController::class, 'store'])->name('admin.content.blog-store');
 
     Route::get('/content/blogs/edit/{blog:slug}', [BlogController::class, 'edit'])->name('admin.content.blog-edit');
-    Route::get('/content/blogs/update/{blog:slug}', [BlogController::class, 'update'])->name('admin.content.blog-update');
+    Route::put('/content/blogs/update/{blog:slug}', [BlogController::class, 'update'])->name('admin.content.blog-update');
 
     Route::get('/content/blogs/{blog:slug}', [BlogController::class, 'show'])->name('admin.content.blog-show');
 

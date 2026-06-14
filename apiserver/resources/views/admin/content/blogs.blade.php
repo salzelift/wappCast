@@ -2,7 +2,7 @@
 
     <x-slot:title>Blogs listing</x-slot:title>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-10xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
             <div>
                 <h1 class="text-2xl font-bold text-gray-900 tracking-tight">Blog Management</h1>
@@ -23,37 +23,37 @@
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead>
-                    <tr class="bg-gray-50 border-b border-gray-200 text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                        <th class="px-6 py-4">Image</th>
-                        <th class="px-6 py-4">Blog Details</th>
-                        <th class="px-6 py-4">Category</th>
-                        <th class="px-6 py-4">Read Time</th>
-                        <th class="px-6 py-4">Created At</th>
-                        <th class="px-6 py-4 text-right">Actions</th>
-                    </tr>
+                        <tr class="bg-gray-50 border-b border-gray-200 text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            <th class="px-6 py-4">Image</th>
+                            <th class="px-6 py-4">Blog Details</th>
+                            <th class="px-6 py-4">Category</th>
+                            <th class="px-6 py-4">Read Time</th>
+                            <th class="px-6 py-4">Created At</th>
+                            <th class="px-6 py-4 text-right">Actions</th>
+                        </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100 text-sm text-gray-700">
                     @forelse($blogs as $blog)
                         <tr class="hover:bg-gray-50/70 transition-colors">
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <img src="{{ $blog->image_url }}" alt="{{ $blog->title }}" class="w-16 h-11 object-cover rounded-md bg-gray-100 border border-gray-200 shadow-sm">
+                            <td class="px-6 py-2 whitespace-nowrap">
+                                <img src="{{ Storage::url($blog->image_url) }}" alt="{{ $blog->title }}" class="w-16 h-11 object-cover rounded-md bg-gray-100 border border-gray-200 shadow-sm">
                             </td>
-                            <td class="px-6 py-4 max-w-xs md:max-w-md">
+                            <td class="px-6 py-2 max-w-xs md:max-w-md">
                                 <span class="font-medium text-gray-900 block truncate">{{ $blog->title }}</span>
                                 <span class="text-xs text-gray-500 block truncate mt-0.5">{{ $blog->description }}</span>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-2 whitespace-nowrap">
                                     <span class="inline-flex items-center px-2.5 py-0.5 text-xs font-medium bg-gray-100 text-gray-800 rounded-md border border-gray-200">
-                                        ID: {{ $blog->category_id }}
+                                        {{ $blog->category->name }}
                                     </span>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">
+                            <td class="px-6 py-2 whitespace-nowrap text-gray-500">
                                 {{ $blog->time_to_read }} mins
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-gray-500">
+                            <td class="px-6 py-2 whitespace-nowrap text-gray-500">
                                 {{ $blog->created_at->format('M d, Y') }}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-xs font-medium">
+                            <td class="px-6 py-2 whitespace-nowrap text-right text-xs font-medium">
                                 <div class="inline-flex items-center space-x-1.5">
                                     <a href="{{ route("admin.content.blog-show", $blog->slug) }}" class="px-2.5 py-1.5 border border-gray-200 text-gray-700 hover:bg-gray-50 rounded-md transition-colors">View</a>
                                     <a href="{{ route('admin.content.blog-edit', $blog->slug) }}" class="px-2.5 py-1.5 border border-amber-200 text-amber-700 bg-amber-50/30 hover:bg-amber-50 rounded-md transition-colors">Edit</a>

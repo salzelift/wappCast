@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
 
 .dark {
   --color-primary: #4edea3;
@@ -302,4 +304,35 @@ body {
 
 .animate-hero-preview {
   animation: hero-fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+/* Dark mode overrides for prose typography content to ensure legibility */
+.dark .prose {
+  color: var(--color-on-surface-variant, #bbcabf);
+}
+.dark .prose p {
+  color: var(--color-on-surface, #dae2fd) !important;
+}
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6 {
+  color: #ffffff !important;
+}
+.dark .prose a {
+  color: var(--color-primary, #4edea3) !important;
+}
+.dark .prose strong {
+  color: #ffffff;
+}
+.dark .prose li {
+  color: var(--color-on-surface-variant, #bbcabf);
+}
+.dark .prose pre {
+  background-color: var(--color-surface-container-lowest, #060e20) !important;
+}
+.dark .prose code {
+  color: #ffffff;
 }

@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@tailwindcss/typography": "github:tailwindcss/typography",
     "@tailwindcss/vite": "^4.3.0",
     "@takumi-rs/core": "^1.8.1",
     "nuxt": "^4.4.7",
