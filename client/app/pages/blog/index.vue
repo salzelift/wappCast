@@ -2,7 +2,7 @@
   <main class="pt-32 pb-section-padding">
     <!-- Hero Section -->
     <section class="max-w-container-max mx-auto px-margin-mobile mb-16 text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary mb-6">
+      <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-primary/30 bg-primary/10 text-on-primary-container dark:text-primary mb-6">
         <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
         <span class="text-label-sm font-label-sm">OFFICIAL META API BLOG</span>
       </div>

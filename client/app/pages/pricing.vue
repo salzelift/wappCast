@@ -53,7 +53,7 @@
                     <span class="text-on-surface-variant line-through text-headline-md opacity-50">
                       {{ currency === 'INR' ? '₹24,499' : '$299' }}
                     </span>
-                    <span class="text-white font-bold text-headline-lg">
+                    <span class="text-on-surface font-bold text-headline-lg">
                       {{ currency === 'INR' ? '₹14,499' : '$179' }}
                     </span>
                     <span class="text-on-surface-variant font-body-md">/ Year</span>

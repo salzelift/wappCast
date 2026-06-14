@@ -27,7 +27,7 @@
         <div class="relative group max-w-5xl mx-auto">
           <div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-2xl group-hover:blur-3xl transition duration-500 opacity-75"></div>
           <div class="relative glass-card rounded-3xl p-2 overflow-hidden shadow-2xl">
-            <img alt="wappCAST Dashboard Overview" class="w-full h-auto rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ1jHJvMrJZ5CXhGmvDKB_tGAPwY3hJDABr6IlSvN51K-Y-FDzJGekA0_7ywC847Nfo44gh-yczBT7jRDZT_JVQHHeRnmQE-YAueOnzXi7zHIXa0qzwFTgL56-dYMc5dJZWT_6IGBocThC94_JQzZ3FZPqDXQ6A9boPtwB7dh3BYs_mw6_na6IQimQA9rBbpLcvExDwq2nVHUlj0TfccDdEBdsirC_Zw7wQ2SnHmoSHNJdLgdZfnZrMXCAYOurGUXDvEY3ArorE2gc"/>
+            <img alt="wappCAST Dashboard Overview" class="w-full h-auto rounded-2xl shadow-xl" src="/features_dashboard_preview.png" />
           </div>
         </div>
       </div>

@@ -16,7 +16,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
         <div class="lg:col-span-8">
           <div class="mb-6 flex items-center gap-4">
-            <span class="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-label-sm font-label-sm uppercase tracking-wider">
+            <span class="px-3 py-1 bg-primary/10 text-on-primary-container dark:text-primary border border-primary/20 rounded-full text-label-sm font-label-sm uppercase tracking-wider">
               {{ post.category }}
             </span>
             <span class="text-on-surface-variant font-label-sm text-label-sm italic">

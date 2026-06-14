@@ -21,6 +21,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')->name('admin.dashboard');
     Route::get('/contact', [ContactController::class, 'index'])->name('admin.contact');
     Route::view('/content', 'admin.content.index')->name('admin.content');
+
     Route::get('/content/categories', [CategoryController::class, 'index'])->name('admin.content.categories');
 
     Route::view('/content/categories/create', 'admin.content.category-form')->name('admin.content.category-create');
@@ -32,6 +33,18 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::post('/content/categories/delete/{category:slug}', [CategoryController::class, 'destroy'])->name('admin.content.category-delete');
 
     Route::get('/content/categories/{category:slug}', [CategoryController::class, 'show'])->name('admin.content.category-show');
-    Route::view('/content/blogs', 'admin.content.blogs')->name('admin.content.blogs');
+
+    Route::get('/content/blogs', [BlogController::class, 'index'])->name('admin.content.blogs');
+
+    Route::get('/content/blogs/create', [BlogController::class, 'create'])->name('admin.content.blog-create');
+    Route::post('/content/blogs/store', [BlogController::class, 'store'])->name('admin.content.blog-store');
+
+    Route::get('/content/blogs/edit/{blog:slug}', [BlogController::class, 'edit'])->name('admin.content.blog-edit');
+    Route::get('/content/blogs/update/{blog:slug}', [BlogController::class, 'update'])->name('admin.content.blog-update');
+
+    Route::get('/content/blogs/{blog:slug}', [BlogController::class, 'show'])->name('admin.content.blog-show');
+
+    Route::delete('/content/blogs/delete/{blog:slug}', [BlogController::class, 'destroy'])->name('admin.content.blog-delete');
+
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

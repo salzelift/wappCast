@@ -10,7 +10,7 @@
 
 <div class="min-h-screen flex flex-col md:flex-row">
 
-    <aside class="w-full md:w-64 bg-slate-900 text-slate-300 flex-shrink-0 flex flex-col justify-between">
+    <aside class="w-full md:w-64 bg-slate-900 text-slate-300 flex-shrink-0 flex flex-col justify-between fixed h-screen z-10">
         <div>
             <a href="{{route('admin.dashboard')}}" class="h-16 flex items-center px-6 bg-slate-950 border-b border-slate-800">
                 <span class="text-lg font-bold text-white tracking-wider uppercase">Control Panel</span>
@@ -51,8 +51,8 @@
         </div>
     </aside>
 
-    <main class="flex-1 min-w-0 flex flex-col">
-        <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-end px-8 shadow-sm">
+    <main class="flex-1 min-w-0 flex flex-col ml-64">
+        <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-end px-8 shadow-sm fixed top-0 w-screen z-100">
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-sm font-bold text-indigo-700">
                     {{ substr(Auth::user()->name ?? 'A', 0, 1) }}
@@ -61,7 +61,7 @@
             </div>
         </header>
 
-        <div class="p-6 md:p-10 max-w-7xl w-full mx-auto">
+        <div class="p-6 md:p-10 max-w-8xl w-full mx-auto m-16">
             {{ $slot }}
         </div>
     </main>

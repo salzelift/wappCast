@@ -154,7 +154,7 @@
               <span class="px-4 py-2.5 rounded-full bg-surface-container border border-white/5 font-semibold text-sm flex items-center gap-2 text-on-surface">
                 <span class="material-symbols-outlined text-primary text-[18px]">person</span> Full Name
               </span>
-              <span class="px-4 py-2.5 rounded-full bg-primary/10 border border-primary/20 font-semibold text-sm flex items-center gap-2 text-primary">
+              <span class="px-4 py-2.5 rounded-full bg-primary/10 border border-primary/20 font-semibold text-sm flex items-center gap-2 text-on-primary-container dark:text-primary">
                 <span class="material-symbols-outlined text-[18px]">verified_user</span> Verified Number
               </span>
               <span class="px-4 py-2.5 rounded-full bg-surface-container border border-white/5 font-semibold text-sm flex items-center gap-2 text-on-surface">
@@ -280,7 +280,7 @@
               <p class="text-on-surface-variant text-body-md leading-relaxed mb-4">
                 We remove dead numbers, bots, and inactive routing paths automatically.
               </p>
-              <div class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs">
+              <div class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-on-primary-container dark:text-primary font-bold text-xs">
                 Outbound Optimized
               </div>
             </div>

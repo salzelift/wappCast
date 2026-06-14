@@ -75,6 +75,17 @@
           </button>
         </div>
 
+        <!-- Theme Toggle -->
+        <button 
+          @click="toggleTheme" 
+          class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors cursor-pointer"
+          aria-label="Toggle Theme"
+        >
+          <span class="material-symbols-outlined text-[20px]">
+            {{ isDark ? 'light_mode' : 'dark_mode' }}
+          </span>
+        </button>
+
         <div class="h-6 w-px bg-border-subtle mx-1 hidden md:block"></div>
 
         <!-- CTA Buttons -->
@@ -158,11 +169,26 @@ const isScrolled = ref(false)
 // Global Currency State shared between components
 const currency = useState('currency', () => 'INR')
 
+// Global Theme State
+const isDark = useState('theme', () => false)
+
+const toggleTheme = () => {
+  isDark.value = !isDark.value
+  if (isDark.value) {
+    document.documentElement.classList.add('dark')
+    localStorage.setItem('theme', 'dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+    localStorage.setItem('theme', 'light')
+  }
+}
+
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 20
 }
 
 onMounted(() => {
+  isDark.value = document.documentElement.classList.contains('dark')
   window.addEventListener('scroll', handleScroll)
 })
 

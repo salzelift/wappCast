@@ -5,16 +5,16 @@
       <div class="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
       <div class="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
       <div class="relative z-10 max-w-5xl mx-auto">
-        <h1 class="font-display-hero text-display-hero mb-6 tracking-tight leading-tight md:block hidden">
+        <h1 class="font-display-hero text-display-hero mb-6 tracking-tight leading-tight md:block hidden animate-hero-title-desktop">
           #1 Ban-Proof WhatsApp API for <span class="text-primary italic">Customer Acquisition and Engagement</span> 🏆
         </h1>
-        <h1 class="font-display-hero-mobile text-display-hero-mobile mb-6 tracking-tight leading-tight md:hidden">
+        <h1 class="font-display-hero-mobile text-display-hero-mobile mb-6 tracking-tight leading-tight md:hidden animate-hero-title-mobile">
           #1 Ban-Proof WhatsApp API 🏆
         </h1>
-        <p class="text-body-lg font-body-lg text-on-surface-variant mb-10 max-w-3xl mx-auto">
+        <p class="text-body-lg font-body-lg text-on-surface-variant mb-10 max-w-3xl mx-auto animate-hero-desc">
           Reach your customers on the app they use every day. Launch WhatsApp campaigns in minutes and watch your numbers move.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-hero-cta">
           <NuxtLink to="/contact" class="btn-gradient px-10 py-5 rounded-full text-on-primary-container font-extrabold text-body-lg font-body-lg w-full sm:w-auto shadow-2xl">
             Book a Demo
           </NuxtLink>
@@ -24,7 +24,7 @@
         </div>
         
         <!-- Dashboard Preview -->
-        <div class="mt-8 relative group max-w-4xl mx-auto">
+        <div class="mt-8 relative group max-w-4xl mx-auto animate-hero-preview">
           <div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl group-hover:blur-2xl transition duration-500 opacity-75"></div>
           <div class="relative glass-card rounded-2xl p-2 overflow-hidden shadow-2xl">
             <iframe 
@@ -42,223 +42,336 @@
     </section>
 
     <!-- Trusted By Section -->
-    <section class="py-12 border-y border-border-subtle/50 bg-surface-container-lowest/50 overflow-hidden relative">
-      <!-- Edge Masking Gradients -->
-      <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background via-background/40 to-transparent z-10 pointer-events-none"></div>
-      <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background via-background/40 to-transparent z-10 pointer-events-none"></div>
-      
+    <section class="py-16 border-y border-border-subtle/50 bg-surface-container-lowest/50 relative trusted-by-section">
       <div class="max-w-container-max mx-auto px-margin-mobile">
-        <p class="text-center text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest mb-8 opacity-70">Trusted by Businesses Worldwide</p>
+        <p class="text-center text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest mb-10 opacity-70">Trusted by Businesses Worldwide</p>
         
-        <div class="relative w-full overflow-hidden">
-          <div class="animate-marquee-ltr flex items-center gap-16 whitespace-nowrap">
-            <!-- First Set -->
-            <div class="flex items-center gap-16 shrink-0">
-              <!-- Booksy -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Booksy-logo-black.svg" class="h-7 w-auto brightness-0 invert" alt="Booksy" />
-              </div>
-              <!-- Lybrate -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 145 32" class="h-7 w-auto fill-current text-on-surface">
-                  <text x="0" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="22" letter-spacing="-0.5px">lybra</text>
-                  <circle cx="90" cy="15" r="9" fill="#d9381e" />
-                  <path d="M90 10v10M85 15h10" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
-                  <text x="106" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="22" letter-spacing="-0.5px">e</text>
-                </svg>
-              </div>
-              <!-- Wipro -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Wipro_Primary_Logo_Color_RGB.svg" class="h-8 w-auto filter drop-shadow-[0_0_1px_rgba(255,255,255,0.4)]" alt="Wipro" />
-              </div>
-              <!-- FoxyMoron -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/FoxyMoron.png" class="h-8 w-auto" alt="FoxyMoron" />
-              </div>
-              <!-- GroupM -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/GroupM-Logo.svg" class="h-7 w-auto" alt="GroupM" />
-              </div>
-              <!-- CGBOT -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 90 75" class="h-14 w-auto fill-current text-on-surface">
-                  <line x1="32" y1="20" x2="24" y2="10" stroke="#7f8c8d" stroke-width="3.5" stroke-linecap="round" />
-                  <circle cx="24" cy="10" r="3.5" fill="#e67e22" />
-                  <line x1="58" y1="20" x2="66" y2="10" stroke="#7f8c8d" stroke-width="3.5" stroke-linecap="round" />
-                  <circle cx="66" cy="10" r="3.5" fill="#e67e22" />
-                  <rect x="20" y="18" width="42" height="34" rx="8" fill="#7f8c8d" />
-                  <rect x="25" y="23" width="32" height="20" rx="5" fill="#ffffff" />
-                  <circle cx="34" cy="31" r="4.5" fill="#34495e" />
-                  <circle cx="34" cy="31" r="1.5" fill="#fff" />
-                  <circle cx="48" cy="31" r="4.5" fill="#34495e" />
-                  <circle cx="48" cy="31" r="1.5" fill="#fff" />
-                  <path d="M32 37 Q41 43 50 37" stroke="#34495e" stroke-width="2.5" fill="none" stroke-linecap="round" />
-                  <text x="41" y="66" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="12" fill="#e67e22" text-anchor="middle" letter-spacing="1px">CGBOT</text>
-                </svg>
-              </div>
-              <!-- BKT Tires -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 110 32" class="h-8 w-auto">
-                  <text x="0" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="24" font-style="italic" fill="#00bd85" letter-spacing="-1px">BKT</text>
-                  <line x1="0" y1="26" x2="62" y2="26" stroke="#00bd85" stroke-width="1.5" />
-                  <text x="10" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8" font-style="italic" fill="#00bd85" letter-spacing="1.2px">TIRES</text>
-                </svg>
-              </div>
-              <!-- Luminous -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 150 30" class="h-7 w-auto">
-                  <text x="0" y="23" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="20" fill="#0056b3" letter-spacing="0.5px">LUMINOUS</text>
-                </svg>
-              </div>
-              <!-- Join -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 90 30" class="h-7 w-auto fill-current text-on-surface">
-                  <text x="0" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="24" letter-spacing="-0.5px">JOIN</text>
-                  <circle cx="63" cy="4" r="3.5" fill="#4edea3" />
-                </svg>
-              </div>
-              <!-- Vivion -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 70 70" class="h-14 w-auto">
-                  <circle cx="35" cy="24" r="18" stroke="#be2edd" stroke-width="2" fill="none" />
-                  <path d="M26 15 L35 32 L44 15" stroke="#be2edd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                  <path d="M29 15 L35 27" stroke="#e056fd" stroke-width="2.5" stroke-linecap="round" fill="none" />
-                  <text x="35" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#dae2fd" text-anchor="middle" letter-spacing="0.5px">vivioN</text>
-                </svg>
-              </div>
-              <!-- Amura -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 70 70" class="h-14 w-auto">
-                  <rect x="17" y="5" width="36" height="36" rx="6" fill="#7cb342" />
-                  <text x="35" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="26" fill="#fff" text-anchor="middle">a</text>
-                  <text x="35" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#dae2fd" text-anchor="middle" letter-spacing="0.5px">amura</text>
-                </svg>
-              </div>
-            </div>
-
-            <!-- Duplicate Set for Seamless Looping -->
-            <div class="flex items-center gap-16 shrink-0">
-              <!-- Booksy -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Booksy-logo-black.svg" class="h-7 w-auto brightness-0 invert" alt="Booksy" />
-              </div>
-              <!-- Lybrate -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 145 32" class="h-7 w-auto fill-current text-on-surface">
-                  <text x="0" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="22" letter-spacing="-0.5px">lybra</text>
-                  <circle cx="90" cy="15" r="9" fill="#d9381e" />
-                  <path d="M90 10v10M85 15h10" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
-                  <text x="106" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="22" letter-spacing="-0.5px">e</text>
-                </svg>
-              </div>
-              <!-- Wipro -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Wipro_Primary_Logo_Color_RGB.svg" class="h-8 w-auto filter drop-shadow-[0_0_1px_rgba(255,255,255,0.4)]" alt="Wipro" />
-              </div>
-              <!-- FoxyMoron -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/FoxyMoron.png" class="h-8 w-auto" alt="FoxyMoron" />
-              </div>
-              <!-- GroupM -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/GroupM-Logo.svg" class="h-7 w-auto" alt="GroupM" />
-              </div>
-              <!-- CGBOT -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 90 75" class="h-14 w-auto fill-current text-on-surface">
-                  <line x1="32" y1="20" x2="24" y2="10" stroke="#7f8c8d" stroke-width="3.5" stroke-linecap="round" />
-                  <circle cx="24" cy="10" r="3.5" fill="#e67e22" />
-                  <line x1="58" y1="20" x2="66" y2="10" stroke="#7f8c8d" stroke-width="3.5" stroke-linecap="round" />
-                  <circle cx="66" cy="10" r="3.5" fill="#e67e22" />
-                  <rect x="20" y="18" width="42" height="34" rx="8" fill="#7f8c8d" />
-                  <rect x="25" y="23" width="32" height="20" rx="5" fill="#ffffff" />
-                  <circle cx="34" cy="31" r="4.5" fill="#34495e" />
-                  <circle cx="34" cy="31" r="1.5" fill="#fff" />
-                  <circle cx="48" cy="31" r="4.5" fill="#34495e" />
-                  <circle cx="48" cy="31" r="1.5" fill="#fff" />
-                  <path d="M32 37 Q41 43 50 37" stroke="#34495e" stroke-width="2.5" fill="none" stroke-linecap="round" />
-                  <text x="41" y="66" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="12" fill="#e67e22" text-anchor="middle" letter-spacing="1px">CGBOT</text>
-                </svg>
-              </div>
-              <!-- BKT Tires -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 110 32" class="h-8 w-auto">
-                  <text x="0" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="24" font-style="italic" fill="#00bd85" letter-spacing="-1px">BKT</text>
-                  <line x1="0" y1="26" x2="62" y2="26" stroke="#00bd85" stroke-width="1.5" />
-                  <text x="10" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="8" font-style="italic" fill="#00bd85" letter-spacing="1.2px">TIRES</text>
-                </svg>
-              </div>
-              <!-- Luminous -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 150 30" class="h-7 w-auto">
-                  <text x="0" y="23" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="20" fill="#0056b3" letter-spacing="0.5px">LUMINOUS</text>
-                </svg>
-              </div>
-              <!-- Join -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 90 30" class="h-7 w-auto fill-current text-on-surface">
-                  <text x="0" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="24" letter-spacing="-0.5px">JOIN</text>
-                  <circle cx="63" cy="4" r="3.5" fill="#4edea3" />
-                </svg>
-              </div>
-              <!-- Vivion -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 70 70" class="h-14 w-auto">
-                  <circle cx="35" cy="24" r="18" stroke="#be2edd" stroke-width="2" fill="none" />
-                  <path d="M26 15 L35 32 L44 15" stroke="#be2edd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                  <path d="M29 15 L35 27" stroke="#e056fd" stroke-width="2.5" stroke-linecap="round" fill="none" />
-                  <text x="35" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#dae2fd" text-anchor="middle" letter-spacing="0.5px">vivioN</text>
-                </svg>
-              </div>
-              <!-- Amura -->
-              <div class="flex items-center justify-center shrink-0 transition-all duration-300 hover:scale-105 opacity-60 hover:opacity-100 filter grayscale hover:grayscale-0">
-                <svg viewBox="0 0 70 70" class="h-14 w-auto">
-                  <rect x="17" y="5" width="36" height="36" rx="6" fill="#7cb342" />
-                  <text x="35" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="26" fill="#fff" text-anchor="middle">a</text>
-                  <text x="35" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#dae2fd" text-anchor="middle" letter-spacing="0.5px">amura</text>
-                </svg>
-              </div>
-            </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 items-center justify-items-center">
+          <!-- Booksy -->
+          <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
+            <img src="/companies/booksy.png" class="h-8 w-auto object-contain" alt="Booksy" />
+          </div>
+          <!-- Lybrate -->
+          <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
+            <img src="/companies/lybrae.png" class="h-8 w-auto object-contain" alt="Lybrate" />
+          </div>
+          <!-- Wipro -->
+          <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
+            <img src="/companies/wipro.png" class="h-9 w-auto object-contain" alt="Wipro" />
+          </div>
+          <!-- FoxyMoron -->
+          <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
+            <img src="/companies/foxyMoron.png" class="h-9 w-auto object-contain" alt="FoxyMoron" />
+          </div>
+          <!-- GroupM -->
+          <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
+            <img src="/companies/groupm.png" class="h-8 w-auto object-contain" alt="GroupM" />
+          </div>
+          <!-- CGBOT -->
+          <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
+            <img src="/companies/cgBot.png" class="h-9 w-auto object-contain" alt="CGBOT" />
+          </div>
+          <!-- BKT Tires -->
+          <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
+            <img src="/companies/BKTTyres.png" class="h-8 w-auto object-contain" alt="BKT Tires" />
+          </div>
+          <!-- Luminous -->
+          <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
+            <img src="/companies/luminous.png" class="h-8 w-auto object-contain" alt="Luminous" />
+          </div>
+          <!-- Join -->
+          <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
+            <img src="/companies/join.png" class="h-8 w-auto object-contain" alt="Join" />
+          </div>
+          <!-- Vivion -->
+          <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
+            <img src="/companies/vivion.png" class="h-9 w-auto object-contain" alt="Vivion" />
+          </div>
+          <!-- Amura -->
+          <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
+            <img src="/companies/amura.png" class="h-9 w-auto object-contain" alt="Amura" />
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Revenue Flow Diagram Section -->
+    <div class="reveal-on-scroll">
+      <RevenueFlowDiagram />
+    </div>
+
     <!-- Why WhatsApp Section -->
-    <section class="py-section-padding bg-background relative overflow-hidden">
+    <section class="py-section-padding bg-background relative overflow-hidden why-section">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-glow-emerald blur-[120px] opacity-20 pointer-events-none"></div>
       <div class="max-w-container-max mx-auto px-margin-mobile relative z-10">
         <div class="text-center mb-16">
           <h2 class="text-headline-lg font-headline-lg mb-4">Why <span class="text-primary">WhatsApp?</span></h2>
           <p class="text-on-surface-variant text-body-lg max-w-2xl mx-auto">The world's most popular messaging app is now your most powerful business tool.</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="glass-card p-8 rounded-2xl border-primary/20 hover:border-primary/40 transition-all group">
-            <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:shadow-[0_0_20px_rgba(78,222,163,0.3)] transition-all">
-              <span class="material-symbols-outlined text-[32px]">visibility</span>
+
+        <!-- Row 1: Key Stats -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <!-- Open Rate -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center text-center border-primary/10 hover:border-primary/40 transition-all duration-300 hover:scale-[1.02] reveal-on-scroll">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4">
+              <span class="material-symbols-outlined text-2xl">mail</span>
             </div>
-            <h3 class="text-headline-md font-bold mb-4">98% Open Rates</h3>
-            <p class="text-on-surface-variant text-body-md">Stop getting buried in spam folders. Meet your customers where they are already active.</p>
+            <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">98%</div>
+            <p class="text-on-surface font-semibold text-body-md uppercase tracking-wider">Open Rate</p>
           </div>
-          <div class="glass-card p-8 rounded-2xl border-primary/20 hover:border-primary/40 transition-all group">
-            <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:shadow-[0_0_20px_rgba(78,222,163,0.3)] transition-all">
-              <span class="material-symbols-outlined text-[32px]">bolt</span>
+          <!-- Click Rate -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center text-center border-primary/10 hover:border-primary/40 transition-all duration-300 hover:scale-[1.02] reveal-on-scroll">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4">
+              <span class="material-symbols-outlined text-2xl">ads_click</span>
             </div>
-            <h3 class="text-headline-md font-bold mb-4">Instant Replies</h3>
-            <p class="text-on-surface-variant text-body-md">Replies come in minutes, not days. Conversations feel personal and low-friction.</p>
+            <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">45-60%</div>
+            <p class="text-on-surface font-semibold text-body-md uppercase tracking-wider">Click Rate</p>
           </div>
-          <div class="glass-card p-8 rounded-2xl border-primary/20 hover:border-primary/40 transition-all group">
-            <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:shadow-[0_0_20px_rgba(78,222,163,0.3)] transition-all">
-              <span class="material-symbols-outlined text-[32px]">favorite</span>
+          <!-- Active Users -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center text-center border-primary/10 hover:border-primary/40 transition-all duration-300 hover:scale-[1.02] reveal-on-scroll">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4">
+              <span class="material-symbols-outlined text-2xl">groups</span>
             </div>
-            <h3 class="text-headline-md font-bold mb-4">Personal Connection</h3>
-            <p class="text-on-surface-variant text-body-md">Build trust by engaging in the same space people talk to their friends and family.</p>
+            <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">2.6B+</div>
+            <p class="text-on-surface font-semibold text-body-md uppercase tracking-wider">Active Users</p>
+          </div>
+          <!-- Engagement Rate -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center text-center border-primary/10 hover:border-primary/40 transition-all duration-300 hover:scale-[1.02] reveal-on-scroll">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4">
+              <span class="material-symbols-outlined text-2xl">trending_up</span>
+            </div>
+            <div class="text-4xl md:text-5xl font-extrabold text-primary mb-2">70%</div>
+            <p class="text-on-surface font-semibold text-body-md uppercase tracking-wider">Engagement Rate</p>
+          </div>
+        </div>
+
+        <!-- Row 2: Core Feature Metrics -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <!-- Instant Customer Reach -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center border-primary/10 hover:border-primary/40 transition-all duration-300 hover:scale-[1.02] reveal-on-scroll">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+              <span class="material-symbols-outlined text-2xl">bolt</span>
+            </div>
+            <h4 class="text-body-lg font-bold text-on-surface mb-2">Instant Customer Reach</h4>
+            <p class="text-on-surface-variant text-body-md leading-relaxed">Reach customers directly on WhatsApp where messages get seen.</p>
+          </div>
+          <!-- Real-Time Conversations -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center border-primary/10 hover:border-primary/40 transition-all duration-300 hover:scale-[1.02] reveal-on-scroll">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+              <span class="material-symbols-outlined text-2xl">chat</span>
+            </div>
+            <h4 class="text-body-lg font-bold text-on-surface mb-2">Real-Time Conversations</h4>
+            <p class="text-on-surface-variant text-body-md leading-relaxed">Build stronger relationships through two-way communication.</p>
+          </div>
+          <!-- Higher Conversions -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center border-primary/10 hover:border-primary/40 transition-all duration-300 hover:scale-[1.02] reveal-on-scroll">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+              <span class="material-symbols-outlined text-2xl">bar_chart</span>
+            </div>
+            <h4 class="text-body-lg font-bold text-on-surface mb-2">Higher Conversions</h4>
+            <p class="text-on-surface-variant text-body-md leading-relaxed">Convert more leads with personalized messaging and automation.</p>
+          </div>
+          <!-- Trusted & Secure -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center border-primary/10 hover:border-primary/40 transition-all duration-300 hover:scale-[1.02] reveal-on-scroll">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
+              <span class="material-symbols-outlined text-2xl">verified_user</span>
+            </div>
+            <h4 class="text-body-lg font-bold text-on-surface mb-2">Trusted & Secure</h4>
+            <p class="text-on-surface-variant text-body-md leading-relaxed">Communicate through Meta's official business messaging ecosystem.</p>
+          </div>
+        </div>
+
+        <!-- Row 3: Visual Feature Showcases Set 1 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <!-- Connect Instantly -->
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+            <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
+              <div class="w-24 h-32 bg-surface-container border border-border-subtle/50 rounded-t-lg shadow-lg relative p-2 overflow-hidden flex flex-col">
+                <div class="h-1 bg-surface-container-highest rounded-full w-8 mx-auto mb-2"></div>
+                <div class="h-2.5 w-12 bg-surface-container-high rounded-r rounded-bl mb-1.5"></div>
+                <div class="h-2.5 w-10 bg-primary/20 rounded-l rounded-br mb-1.5 ml-auto"></div>
+                <div class="h-2.5 w-14 bg-surface-container-high rounded-r rounded-bl mb-1.5"></div>
+                <div class="h-2.5 w-12 bg-primary rounded-l rounded-br ml-auto"></div>
+              </div>
+              <div class="absolute left-4 top-10 w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg">
+                <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.517 2.266 2.27 3.507 5.289 3.507 8.491-.005 6.66-5.342 11.997-11.953 11.997-2.005-.001-3.973-.504-5.714-1.463L0 24zm6.59-13.43c-.157-.352-.323-.36-.472-.366-.123-.005-.262-.005-.4-.005-.14 0-.367.052-.559.262-.193.21-.735.719-.735 1.754s.75 2.034.855 2.176c.105.14 1.474 2.25 3.572 3.156.499.215.887.344 1.192.441.502.159.959.137 1.32.083.403-.06 1.23-.503 1.405-.989.175-.486.175-.903.123-.989-.052-.087-.193-.137-.403-.242-.21-.105-1.23-.607-1.42-.677-.19-.07-.328-.105-.467.105-.14.21-.54.677-.662.815-.123.137-.245.154-.455.05-.21-.105-.888-.327-1.693-1.045-.625-.558-1.048-1.248-1.17-1.458-.123-.21-.013-.323.092-.427.095-.095.21-.242.315-.363.105-.121.14-.206.21-.343.07-.137.035-.257-.018-.363-.053-.105-.472-1.139-.648-1.558z"/></svg>
+              </div>
+            </div>
+            <div class="mt-4 flex flex-col flex-grow text-left">
+              <h4 class="text-body-lg font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">Connect Instantly</h4>
+              <p class="text-on-surface-variant text-body-md leading-relaxed">Start conversations that build real connections.</p>
+            </div>
+          </div>
+          <!-- Capture & Engage Leads -->
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+            <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
+              <div class="relative flex items-center justify-center w-full h-full">
+                <!-- U-Magnet SVG -->
+                <svg class="w-14 h-14 text-primary drop-shadow-[0_0_12px_rgba(16,185,129,0.3)] transform -rotate-45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 10V6C4 4.89543 4.89543 4 6 4H8C9.10457 4 10 4.89543 10 6V10M14 10V6C14 4.89543 14.89543 4 16 4H18C19.1046 4 20 4.89543 20 6V10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M4 10C4 14.4183 7.58172 18 12 18C16.4183 18 20 14.4183 20 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M4 5V7H10V5M14 5V7H20V5" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="absolute top-4 right-8 w-6 h-6 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-[10px] text-primary font-bold">👤</div>
+                <div class="absolute bottom-6 left-8 w-6 h-6 rounded-full bg-secondary/20 border border-secondary/40 flex items-center justify-center text-[10px] text-secondary font-bold">👤</div>
+                <div class="absolute top-12 left-10 w-5 h-5 rounded-full bg-tertiary/20 border border-tertiary/40 flex items-center justify-center text-[9px] text-tertiary font-bold">👤</div>
+              </div>
+            </div>
+            <div class="mt-4 flex flex-col flex-grow text-left">
+              <h4 class="text-body-lg font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">Capture & Engage Leads</h4>
+              <p class="text-on-surface-variant text-body-md leading-relaxed">Attract, engage and qualify leads in real-time.</p>
+            </div>
+          </div>
+          <!-- Drive More Conversions -->
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+            <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
+              <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+              <div class="relative w-32 h-20 flex items-end">
+                <svg class="absolute inset-0 w-full h-full text-primary" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 45 Q 25 35, 50 40 T 100 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none" class="drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]"/>
+                  <circle cx="100" cy="10" r="4" fill="currentColor"/>
+                </svg>
+                <div class="absolute -top-4 right-0 glass-card px-2 py-0.5 rounded border border-primary/30 flex items-center gap-1 shadow-lg text-[10px] font-bold text-on-surface animate-bounce">
+                  <span class="material-symbols-outlined text-[10px] text-primary">payments</span>
+                  <span>$ Earned</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 flex flex-col flex-grow text-left">
+              <h4 class="text-body-lg font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">Drive More Conversions</h4>
+              <p class="text-on-surface-variant text-body-md leading-relaxed">Nurture leads and close deals faster with personalized conversations.</p>
+            </div>
+          </div>
+          <!-- Team Inbox -->
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+            <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
+              <div class="w-36 h-24 bg-surface-container border border-border-subtle/50 rounded-lg shadow-md overflow-hidden flex">
+                <div class="w-1/3 border-r border-border-subtle/50 bg-surface-container p-1 space-y-1">
+                  <div class="h-1.5 bg-primary/20 rounded w-full"></div>
+                  <div class="h-1.5 bg-surface-container-high rounded w-3/4"></div>
+                  <div class="h-1.5 bg-surface-container-high rounded w-5/6"></div>
+                </div>
+                <div class="flex-1 p-2 flex flex-col justify-between">
+                  <div class="space-y-1">
+                    <div class="flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#25D366]"></span>
+                      <div class="h-1.5 bg-surface-container-highest rounded w-8"></div>
+                    </div>
+                    <div class="h-1 bg-surface-container-high rounded w-full"></div>
+                    <div class="h-1 bg-surface-container-high rounded w-4/5"></div>
+                  </div>
+                  <div class="flex -space-x-1.5 justify-end">
+                    <div class="w-4 h-4 rounded-full bg-primary text-on-primary text-[6px] font-bold border border-surface-container-low flex items-center justify-center">JD</div>
+                    <div class="w-4 h-4 rounded-full bg-secondary text-on-secondary text-[6px] font-bold border border-surface-container-low flex items-center justify-center">AM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 flex flex-col flex-grow text-left">
+              <h4 class="text-body-lg font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">Team Inbox</h4>
+              <p class="text-on-surface-variant text-body-md leading-relaxed">Collaborate with your team and manage chats seamlessly.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4: Visual Feature Showcases Set 2 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Automate Workflows -->
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+            <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
+              <div class="relative w-36 h-20 flex items-center justify-between px-2">
+                <svg class="absolute inset-0 w-full h-full text-border-subtle" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 25 H80" stroke="currentColor" stroke-width="2" stroke-dasharray="4"/>
+                </svg>
+                <div class="z-10 w-9 h-9 rounded-lg bg-surface-container border border-border-subtle/50 flex items-center justify-center text-secondary shadow-sm">
+                  <span class="material-symbols-outlined text-lg">bolt</span>
+                </div>
+                <div class="z-10 w-9 h-9 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center text-primary shadow-lg animate-pulse">
+                  <span class="material-symbols-outlined text-lg">smart_toy</span>
+                </div>
+                <div class="z-10 w-9 h-9 rounded-lg bg-surface-container border border-border-subtle/50 flex items-center justify-center text-primary shadow-sm">
+                  <span class="material-symbols-outlined text-lg">check_circle</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 flex flex-col flex-grow text-left">
+              <h4 class="text-body-lg font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">Automate Workflows</h4>
+              <p class="text-on-surface-variant text-body-md leading-relaxed">Save time with smart automations and chat flows.</p>
+            </div>
+          </div>
+          <!-- Broadcast Campaigns -->
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+            <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
+              <div class="relative flex items-center justify-center">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.2)]">
+                  <span class="material-symbols-outlined text-2xl">campaign</span>
+                </div>
+                <div class="absolute -top-3 -right-2 w-4 h-4 rounded-full bg-secondary flex items-center justify-center shadow animate-bounce">
+                  <span class="material-symbols-outlined text-[8px] text-white">chat</span>
+                </div>
+                <div class="absolute top-5 -right-5 w-4 h-4 rounded-full bg-primary flex items-center justify-center shadow animate-pulse">
+                  <span class="material-symbols-outlined text-[8px] text-white">send</span>
+                </div>
+                <div class="absolute -bottom-2 right-1 w-3.5 h-3.5 rounded-full bg-surface-container-highest flex items-center justify-center shadow">
+                  <span class="material-symbols-outlined text-[8px] text-primary">mail</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 flex flex-col flex-grow text-left">
+              <h4 class="text-body-lg font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">Broadcast Campaigns</h4>
+              <p class="text-on-surface-variant text-body-md leading-relaxed">Send updates and offers to thousands in seconds.</p>
+            </div>
+          </div>
+          <!-- Track & Measure -->
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+            <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
+              <div class="w-32 h-20 bg-surface-container border border-border-subtle/50 rounded-lg shadow-md p-2 flex justify-between gap-2">
+                <div class="w-1/2 flex items-center justify-center">
+                  <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 32 32">
+                    <circle r="16" cx="16" cy="16" fill="transparent" stroke="#2d3449" stroke-width="32" />
+                    <circle r="16" cx="16" cy="16" fill="transparent" stroke="#10b981" stroke-width="32" stroke-dasharray="75 100" />
+                    <circle r="16" cx="16" cy="16" fill="transparent" stroke="#059669" stroke-width="32" stroke-dasharray="25 100" stroke-dashoffset="-75" />
+                  </svg>
+                </div>
+                <div class="flex-1 flex flex-col justify-center gap-1.5">
+                  <div class="h-1.5 bg-primary/30 rounded w-full"></div>
+                  <div class="h-1.5 bg-secondary/30 rounded w-4/5"></div>
+                  <div class="h-1.5 bg-surface-container-highest rounded w-3/5"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 flex flex-col flex-grow text-left">
+              <h4 class="text-body-lg font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">Track & Measure</h4>
+              <p class="text-on-surface-variant text-body-md leading-relaxed">Get actionable insights and measure performance that matters.</p>
+            </div>
+          </div>
+          <!-- Verified & Reliable -->
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+            <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
+              <div class="relative flex items-center justify-center">
+                <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">
+                  <span class="material-symbols-outlined text-3xl">verified_user</span>
+                </div>
+                <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-secondary border-2 border-surface flex items-center justify-center text-white shadow">
+                  <span class="material-symbols-outlined text-[12px] font-bold">check</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 flex flex-col flex-grow text-left">
+              <h4 class="text-body-lg font-bold text-on-surface mb-2 group-hover:text-primary transition-colors">Verified & Reliable</h4>
+              <p class="text-on-surface-variant text-body-md leading-relaxed">Build trust with your customers using official WhatsApp Business API.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-section-padding bg-surface-container-lowest">
+    <!-- Interactive Sandbox Section -->
+    <div class="reveal-on-scroll">
+      <InteractiveChatbotSandbox />
+    </div>
+
+    <section class="py-section-padding bg-surface-container-lowest stats-section">
       <div class="max-w-container-max mx-auto px-margin-mobile">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
@@ -297,19 +410,19 @@
             </div>
           </div>
           <div class="grid grid-cols-2 gap-10">
-            <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center stat-card reveal-on-scroll">
               <div class="text-[40px] font-extrabold text-primary mb-2">98%</div>
               <p class="text-label-sm font-label-sm text-on-surface-variant uppercase">Open Rate</p>
             </div>
-            <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center stat-card reveal-on-scroll">
               <div class="text-[40px] font-extrabold text-primary mb-2">45%</div>
               <p class="text-label-sm font-label-sm text-on-surface-variant uppercase">Click Rate</p>
             </div>
-            <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center stat-card reveal-on-scroll">
               <div class="text-[40px] font-extrabold text-primary mb-2">3X</div>
               <p class="text-label-sm font-label-sm text-on-surface-variant uppercase">ROI Growth</p>
             </div>
-            <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center">
+            <div class="glass-card p-6 rounded-2xl flex flex-col items-center text-center stat-card reveal-on-scroll">
               <div class="text-[40px] font-extrabold text-primary mb-2">2min</div>
               <p class="text-label-sm font-label-sm text-on-surface-variant uppercase">Avg Response</p>
             </div>
@@ -324,21 +437,22 @@
         <div class="text-center mb-16 max-w-4xl mx-auto">
           <h2 class="text-headline-lg font-headline-lg mb-6 leading-tight">Turn WhatsApp Into Your <span class="text-primary">Revenue Generation Machine</span></h2>
           <p class="text-body-lg font-body-lg text-on-surface-variant mb-12">
-            Connect your marketing channels and automate lead engagement in real time. For example, when a new lead is generated from Meta Ads, instantly send a personalized WhatsApp message and route the conversation to your sales team - ensuring faster responses and higher conversion rates.
+            Connect your marketing channels and automate lead engagement in real time. wappCAST supports seamless real-time data transfers across your entire stack.
           </p>
-          <div class="relative group max-w-5xl mx-auto mb-16">
-            <div class="absolute -inset-4 bg-primary/5 blur-3xl rounded-full opacity-50"></div>
-            <img alt="Revenue Generation Machine Visualization" class="relative z-10 w-full rounded-2xl shadow-2xl border border-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAohtLdjc0C-aozFLJt5HJK9dgSamqglwMBJ8Mt1_oGvONlUvsZvHk0SJRUOUu5264QWVKfjiKLL7OmbKwqvo4Tw14-5TX2X2AbEIgwOxFzSZwBHjHx6BFGxdHt74fy8GeexCBkvq4sIIcC2zY9jlzkzp31LCICl_o-oHbMypKLDE-V7Z8czEcA9wigPBAzHCeBWaUgy_2mXoOaIE4siYQn9pE_52sLd9cxC7bolByiDR3Uos-qoB9ZO7uIitb8etwB-QmkQnUqYHpt"/>
-          </div>
         </div>
-        <div class="flex justify-center">
+        
+        <div class="reveal-on-scroll">
+          <IntegrationsHub />
+        </div>
+
+        <div class="flex justify-center mt-16">
           <NuxtLink to="/contact" class="btn-gradient px-12 py-5 rounded-full text-on-primary-container font-extrabold text-body-lg shadow-xl">Book a Demo</NuxtLink>
         </div>
       </div>
     </section>
 
     <!-- Everything You Need Section -->
-    <section class="py-section-padding bg-surface-container-lowest relative overflow-hidden" id="features">
+    <section class="py-section-padding bg-surface-container-lowest relative overflow-hidden features-section" id="features">
       <div class="max-w-container-max mx-auto px-margin-mobile relative z-10">
         <div class="text-center mb-16">
           <span class="text-primary font-bold tracking-widest uppercase text-label-sm font-label-sm block mb-4">Complete CRM Platform</span>
@@ -347,7 +461,7 @@
         </div>
         <div class="w-full flex flex-col gap-4">
           <!-- Featured Card -->
-          <div class="col-span-12 md:col-span-8 glass-card rounded-xl p-8 flex flex-col justify-between min-h-[300px] hover:border-primary/40 transition-all group">
+          <div class="col-span-12 md:col-span-8 glass-card rounded-xl p-8 flex flex-col justify-between min-h-[300px] hover:border-primary/40 transition-all group feature-card reveal-on-scroll">
             <div>
               <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
                 <span class="material-symbols-outlined">auto_awesome</span>
@@ -362,7 +476,7 @@
             </div>
           </div>
           <!-- Small Card 1 -->
-          <div class="col-span-12 md:col-span-4 glass-card rounded-xl p-8 hover:border-primary/40 transition-all group">
+          <div class="col-span-12 md:col-span-4 glass-card rounded-xl p-8 hover:border-primary/40 transition-all group feature-card reveal-on-scroll">
             <div class="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:scale-110 transition-transform">
               <span class="material-symbols-outlined">verified_user</span>
             </div>
@@ -370,7 +484,7 @@
             <p class="text-on-surface-variant font-body-md text-body-md">Every message goes out on Meta's official API. No risky workarounds.</p>
           </div>
           <!-- Small Card 2 -->
-          <div class="col-span-12 md:col-span-4 glass-card rounded-xl p-8 hover:border-primary/40 transition-all group">
+          <div class="col-span-12 md:col-span-4 glass-card rounded-xl p-8 hover:border-primary/40 transition-all group feature-card reveal-on-scroll">
             <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
               <span class="material-symbols-outlined">data_thresholding</span>
             </div>
@@ -378,7 +492,7 @@
             <p class="text-on-surface-variant font-body-md text-body-md">Track delivery, reads, and replies live from your command center.</p>
           </div>
           <!-- Small Card 3 -->
-          <div class="col-span-12 md:col-span-8 glass-card rounded-xl p-8 hover:border-primary/40 transition-all group relative overflow-hidden">
+          <div class="col-span-12 md:col-span-8 glass-card rounded-xl p-8 hover:border-primary/40 transition-all group relative overflow-hidden feature-card reveal-on-scroll">
             <div class="relative z-10">
               <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
                 <span class="material-symbols-outlined">hub</span>
@@ -548,7 +662,7 @@
     </section>
 
     <!-- Final CTA -->
-    <section class="py-section-padding bg-gradient-to-b from-background to-surface-container-lowest">
+    <section class="py-section-padding bg-gradient-to-b from-background to-surface-container-low">
       <div class="max-w-4xl mx-auto px-margin-mobile text-center">
         <h2 class="text-headline-lg font-headline-lg mb-8">Ready to Turn WhatsApp Into a Revenue Machine?</h2>
         <p class="text-body-lg font-body-lg text-on-surface-variant mb-12">Join 500+ businesses scaling their outreach on the world's most popular messaging app.</p>

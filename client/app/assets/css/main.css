@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme {
+.dark {
   --color-primary: #4edea3;
   --color-primary-container: #10b981;
   --color-secondary: #45dfa4;
@@ -34,6 +34,42 @@
   --color-error-container: #93000a;
   --color-on-error: #690005;
   --color-on-error-container: #ffdad6;
+}
+
+@theme {
+  --color-primary: #10b981;
+  --color-primary-container: #d1fae5;
+  --color-secondary: #059669;
+  --color-secondary-container: #a7f3d0;
+  --color-tertiary: #34d399;
+  --color-tertiary-container: #ecfdf5;
+  --color-background: #ffffff;
+  --color-background-deep: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-dim: #f1f5f9;
+  --color-surface-bright: #ffffff;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-low: #f8fafc;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #e2e8f0;
+  --color-surface-container-highest: #cbd5e1;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #064e3b;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #064e3b;
+  --color-on-tertiary: #111827;
+  --color-on-tertiary-container: #064e3b;
+  --color-on-background: #0f172a;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-border-subtle: rgba(0, 0, 0, 0.08);
+  --color-outline: #94a3b8;
+  --color-glow-emerald: rgba(16, 185, 129, 0.05);
+  --color-error-red: #ef4444;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #410002;
 
   --font-sans: 'Plus Jakarta Sans', sans-serif;
   --font-display-hero: 'Plus Jakarta Sans', sans-serif;
@@ -95,9 +131,23 @@
 }
 
 @utility glass-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.dark .glass-card {
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@utility bg-grid-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+.dark .bg-grid-pattern {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
 @utility glow-hover {
@@ -145,11 +195,12 @@
 }
 
 body {
-  background-color: #0b1326;
-  color: #dae2fd;
+  background-color: var(--color-background);
+  color: var(--color-on-background);
   font-family: 'Plus Jakarta Sans', sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom scrollbar */
@@ -194,4 +245,61 @@ body {
 
 .animate-marquee-ltr:hover {
   animation-play-state: paused;
+}
+
+/* Native CSS Scroll-Driven Reveal Animations */
+@keyframes reveal-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.reveal-on-scroll {
+  opacity: 1;
+  transform: none;
+}
+
+@supports (animation-timeline: view()) {
+  .reveal-on-scroll {
+    animation: reveal-fade-in linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 25%;
+  }
+}
+
+/* Hero Entrance Animations */
+@keyframes hero-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-title-desktop {
+  animation: hero-fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-hero-title-mobile {
+  animation: hero-fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-hero-desc {
+  animation: hero-fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.animate-hero-cta {
+  animation: hero-fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.animate-hero-preview {
+  animation: hero-fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
