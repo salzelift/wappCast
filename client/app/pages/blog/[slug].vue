@@ -40,11 +40,20 @@
         <!-- Social Share Column (Desktop) -->
         <aside class="hidden lg:block lg:col-span-1">
           <div class="sticky top-32 flex flex-col items-center gap-6">
-            <button class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all cursor-pointer">
+            <button 
+              @click="sharePost"
+              class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all cursor-pointer"
+              title="Share Article"
+            >
               <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">share</span>
             </button>
-            <button class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all cursor-pointer">
-              <span class="material-symbols-outlined">link</span>
+            <button 
+              @click="copyLink"
+              class="w-12 h-12 rounded-full glass-card flex items-center justify-center transition-all cursor-pointer"
+              :class="copied ? 'text-primary border-primary/50' : 'text-on-surface-variant hover:text-primary hover:border-primary/40'"
+              title="Copy Link"
+            >
+              <span class="material-symbols-outlined">{{ copied ? 'check' : 'link' }}</span>
             </button>
           </div>
         </aside>
@@ -158,6 +167,40 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const relatedPage = ref(1)
+const copied = ref(false)
+
+const copyLink = () => {
+  if (import.meta.client || process.client) {
+    navigator.clipboard.writeText(window.location.href)
+      .then(() => {
+        copied.value = true
+        setTimeout(() => {
+          copied.value = false
+        }, 2000)
+      })
+      .catch(err => {
+        console.error('Failed to copy text: ', err)
+      })
+  }
+}
+
+const sharePost = async () => {
+  if ((import.meta.client || process.client) && navigator.share) {
+    try {
+      await navigator.share({
+        title: post.value?.title || 'wappCAST Blog',
+        text: post.value?.description || post.value?.excerpt || '',
+        url: window.location.href
+      })
+    } catch (err) {
+      if (err.name !== 'AbortError') {
+        console.error('Error sharing:', err)
+      }
+    }
+  } else {
+    copyLink()
+  }
+}
 
 // Fetch single blog post from Backend reactively watching page query
 const { data: apiResponse } = await useFetch(() => `http://localhost:8000/api/blogs/${route.params.slug}`, {

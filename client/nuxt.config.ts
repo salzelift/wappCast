@@ -15,7 +15,10 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    strictNuxtContentPaths: true
+    strictNuxtContentPaths: true,
+    sources: [
+      '/api/__sitemap__/urls'
+    ]
   },
 
   robots: {
