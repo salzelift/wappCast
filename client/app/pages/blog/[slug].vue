@@ -72,25 +72,6 @@
         <!-- Author Sidebar (Desktop) -->
         <aside class="lg:col-span-3">
           <div class="sticky top-32 space-y-gutter">
-            <!-- Newsletter Signup -->
-            <div class="glass-card rounded-2xl p-6 border-primary/20 relative overflow-hidden">
-              <div class="absolute -right-10 -top-10 w-24 h-24 bg-primary/20 blur-3xl"></div>
-              <h4 class="font-headline-md text-body-lg font-bold mb-4">Subscribe to Insights</h4>
-              <p class="text-label-sm font-label-sm text-on-surface-variant mb-4">Get the latest on WhatsApp marketing and Meta API updates.</p>
-              <form class="space-y-3" @submit.prevent="subscribe">
-                <input 
-                  v-model="email"
-                  class="w-full bg-background border border-subtle rounded-xl px-4 py-3 text-label-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-on-surface" 
-                  placeholder="Email address" 
-                  required
-                  type="email"
-                />
-                <button class="w-full bg-primary text-on-primary py-3 rounded-xl font-label-sm text-label-sm hover:shadow-glow-emerald transition-all cursor-pointer">
-                  {{ isSubscribed ? 'Joined!' : 'Join List' }}
-                </button>
-              </form>
-            </div>
-            
             <!-- Author Card -->
             <div class="glass-card rounded-2xl p-6">
               <h4 class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest mb-4">Author</h4>
@@ -135,6 +116,37 @@
             </NuxtLink>
           </div>
         </div>
+
+        <!-- Related Blogs Pagination -->
+        <div v-if="relatedTotalPages > 1" class="mt-12 flex items-center justify-center gap-2">
+          <button 
+            :disabled="relatedPage === 1"
+            @click="relatedPage > 1 && (relatedPage--)"
+            class="w-10 h-10 rounded-lg border border-subtle flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+          >
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          
+          <template v-for="(page, idx) in displayedRelatedPages" :key="idx">
+            <span v-if="page === '...'" class="text-on-surface-variant mx-2">...</span>
+            <button 
+              v-else
+              @click="relatedPage = page"
+              class="w-10 h-10 rounded-lg font-bold cursor-pointer transition-all"
+              :class="relatedPage === page ? 'bg-primary text-on-primary-container' : 'border border-subtle text-on-surface-variant hover:border-primary hover:text-primary'"
+            >
+              {{ page }}
+            </button>
+          </template>
+          
+          <button 
+            :disabled="relatedPage === relatedTotalPages"
+            @click="relatedPage < relatedTotalPages && (relatedPage++)"
+            class="w-10 h-10 rounded-lg border border-subtle flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+          >
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
       </div>
     </section>
   </main>
@@ -145,28 +157,54 @@ import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const email = ref('')
-const isSubscribed = ref(false)
+const relatedPage = ref(1)
 
-const subscribe = () => {
-  isSubscribed.value = true
-  setTimeout(() => {
-    email.value = ''
-    isSubscribed.value = false
-  }, 3000)
-}
-
-// Fetch single blog post from Backend
-const { data: apiResponse } = await useFetch(() => `http://localhost:8000/api/blogs/${route.params.slug}`)
-const post = computed(() => apiResponse.value?.data)
+// Fetch single blog post from Backend reactively watching page query
+const { data: apiResponse } = await useFetch(() => `http://localhost:8000/api/blogs/${route.params.slug}`, {
+  query: computed(() => ({ page: relatedPage.value })),
+  watch: [relatedPage]
+})
+const post = computed(() => apiResponse.value?.blog || apiResponse.value?.data?.blog)
 
 // Fetch related blogs from Backend
-const { data: relatedResponse } = await useFetch('http://localhost:8000/api/blogs')
 const relatedPosts = computed(() => {
-  if (!relatedResponse.value?.data) return []
-  return relatedResponse.value.data
-    .filter(p => p.slug !== route.params.slug)
-    .slice(0, 3)
+  const relatedObj = apiResponse.value?.relatedBlogs || apiResponse.value?.data?.relatedBlogs
+  return relatedObj?.data || []
+})
+
+const relatedMeta = computed(() => {
+  return apiResponse.value?.relatedBlogs || apiResponse.value?.data?.relatedBlogs
+})
+
+const relatedTotalPages = computed(() => relatedMeta.value?.last_page || 1)
+
+const displayedRelatedPages = computed(() => {
+  const current = relatedPage.value
+  const last = relatedTotalPages.value
+  const delta = 2
+  const range = []
+  const rangeWithDots = []
+  let l
+  
+  for (let i = 1; i <= last; i++) {
+    if (i === 1 || i === last || (i >= current - delta && i <= current + delta)) {
+      range.push(i)
+    }
+  }
+  
+  for (const i of range) {
+    if (l) {
+      if (i - l === 2) {
+        rangeWithDots.push(l + 1)
+      } else if (i - l > 2) {
+        rangeWithDots.push('...')
+      }
+    }
+    rangeWithDots.push(i)
+    l = i
+  }
+  
+  return rangeWithDots
 })
 
 // Fetch categories from Backend
@@ -185,9 +223,9 @@ const categoriesMap = computed(() => {
 // Fallback Author detail if backend doesn't provide
 const postAuthor = computed(() => {
   return post.value?.author || {
-    name: "Amandeep Sahota",
-    role: "Media Strategy Lead",
-    avatar: "https://lh3.googleusercontent.com/aida-public/AB6AXuDyl8YIkugJJyHpBBbg83iOK6Ra4k18mtMV0iU-gxqsN4TagTqEge9pc_pVOrlkDwBfiRrfQSHh8A2F9c9kXTYXfLAcXbfGTWua9ptjCssyvL6gcBmsDLKWJLBBzmcZAJJ-MQu6Y26fSi6Y06tXKGmPMu3qg4ku2AT5eDSJp3Hct24kAruycX_BTPkBrGZPWLLrK7oTDwZfTgvvDXJJFzyNDAufntuYWlSHgQTc5aTlApcFq0GGae8jaNdRxOcQFQw3vzG-tngDKzmN"
+    name: "wappCAST & Owners",
+    role: "Founders & Editorial Team",
+    avatar: "/wappCAST-logo.png"
   }
 })
 

@@ -68,7 +68,29 @@ class BlogController extends Controller
 
     public function apiShow(Blog $blog)
     {
-        return new BlogResource($blog->load('category'));
+        $query = Blog::with('category')
+            ->latest()
+            ->where('id', '!=', $blog->id);
+
+        $query->where(function ($q) use ($blog) {
+
+            // Match category
+            $q->where('category_id', $blog->category_id);
+
+            // Match any tag
+            if (!empty($blog->tags)) {
+                foreach ($blog->tags as $tag) {
+                    $q->orWhereJsonContains('tags', $tag);
+                }
+            }
+        });
+
+        $blogs = $query->paginate(3);
+
+        return response()->json([
+            'blog' => new BlogResource($blog->load('category')),
+            'relatedBlogs' => $blogs
+        ]);
     }
 
     public function edit(Blog $blog)

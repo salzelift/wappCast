@@ -132,29 +132,6 @@
         </button>
       </div>
     </section>
-
-    <!-- Newsletter CTA -->
-    <section class="max-w-container-max mx-auto px-margin-mobile mt-section-padding">
-      <div class="relative rounded-3xl overflow-hidden glass-card p-12 text-center border-primary/20">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
-        <div class="relative z-10 max-w-2xl mx-auto">
-          <h2 class="text-headline-lg font-headline-lg mb-4">Never Miss a Strategy</h2>
-          <p class="text-body-lg font-body-lg text-on-surface-variant mb-8">Join 5,000+ marketers receiving weekly WhatsApp growth hacks and API updates directly in their inbox.</p>
-          <form class="flex flex-col sm:flex-row gap-3" @submit.prevent="subscribeNewsletter">
-            <input 
-              v-model="emailAddress"
-              class="flex-grow bg-surface-container-lowest border border-subtle rounded-xl px-6 py-4 outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-on-surface" 
-              placeholder="Enter your email" 
-              required
-              type="email"
-            />
-            <button class="bg-primary text-on-primary-container font-bold px-8 py-4 rounded-xl shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all cursor-pointer" type="submit">
-              {{ isSubscribed ? 'Subscribed!' : 'Subscribe Now' }}
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
   </main>
 </template>
 
@@ -384,12 +361,4 @@ defineOgImageComponent('NuxtSeo', {
   theme: '#10b981',
   colorMode: 'dark'
 })
-
-const subscribeNewsletter = () => {
-  isSubscribed.value = true
-  setTimeout(() => {
-    emailAddress.value = ''
-    isSubscribed.value = false
-  }, 3000)
-}
 </script>
