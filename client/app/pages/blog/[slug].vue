@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="relative w-full aspect-[21/9] rounded-3xl overflow-hidden border border-subtle group">
-        <img :alt="post.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" :src="getImageUrl(post.image_url)" @error="(e) => e.target.src = TEMPLATE_IMAGE"/>
+        <img :alt="post.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" :src="getImageUrl(post.image_url)" referrerpolicy="no-referrer" @error="(e) => e.target.src = TEMPLATE_IMAGE"/>
         <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
       </div>
     </header>
@@ -112,7 +112,7 @@
           <div v-for="related in relatedPosts" :key="related.slug" class="group cursor-pointer">
             <NuxtLink :to="`/blog/${related.slug}`">
               <div class="aspect-video rounded-2xl overflow-hidden mb-4 border border-subtle relative">
-                <img :alt="related.title" class="w-full h-full object-cover transition-transform group-hover:scale-105" :src="getImageUrl(related.image_url)" @error="(e) => e.target.src = TEMPLATE_IMAGE"/>
+                <img :alt="related.title" class="w-full h-full object-cover transition-transform group-hover:scale-105" :src="getImageUrl(related.image_url)" referrerpolicy="no-referrer" @error="(e) => e.target.src = TEMPLATE_IMAGE"/>
                 <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors"></div>
               </div>
               <span class="text-label-sm font-label-sm text-primary mb-2 block uppercase tracking-wider">
@@ -277,10 +277,18 @@ const TEMPLATE_IMAGE = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCikw
 // Helper: Format image URLs
 const getImageUrl = (url) => {
   if (!url) return TEMPLATE_IMAGE
-  if (url.startsWith('http://') || url.startsWith('https://')) {
-    return url
+  
+  let processedUrl = url
+  if (processedUrl.includes('localhost:') || processedUrl.includes('127.0.0.1:')) {
+    processedUrl = processedUrl.replace(/localhost:\d+|127\.0\.0\.1:\d+/, '206.189.131.166:8080')
+  } else if (processedUrl.includes('localhost') || processedUrl.includes('127.0.0.1')) {
+    processedUrl = processedUrl.replace(/localhost|127\.0\.0\.1/, '206.189.131.166:8080')
   }
-  return `http://206.189.131.166:8080/storage/${url}`
+
+  if (processedUrl.startsWith('http://') || processedUrl.startsWith('https://')) {
+    return processedUrl
+  }
+  return `http://206.189.131.166:8080/storage/${processedUrl}`
 }
 
 // Helper: Format date

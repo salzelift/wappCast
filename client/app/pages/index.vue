@@ -521,19 +521,19 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
           <div class="glass-card p-6 rounded-xl min-h-[250px] flex flex-col justify-between hover:border-primary/30 transition-all">
-            <p class="text-body-md italic text-on-surface-variant leading-relaxed">"The data tracking on wappCAST is amazing. We can see exactly who is engaging with our messages in real-time."</p>
+            <p class="text-body-md italic text-on-surface-variant leading-relaxed">"Since implementing wappCAST, outreach has reached a new level. WhatsApp has enabled faster conversations, stronger customer relationships, and consistently better business outcomes."</p>
             <div class="mt-8 flex items-center gap-4">
-              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&h=150&fit=crop&crop=face" alt="Amandeep Sahota" class="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-md" />
+              <img src="/companies/amardeep.png" alt="Amandeep Sahota" class="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-md" />
               <div>
                 <h4 class="font-bold text-body-md">Amandeep Sahota</h4>
-                <p class="text-label-sm text-on-surface-variant">Marketing Director</p>
+                <p class="text-label-sm text-on-surface-variant">Media Buyer</p>
               </div>
             </div>
           </div>
           <div class="glass-card p-6 rounded-xl min-h-[250px] flex flex-col justify-between hover:border-primary/30 transition-all border-primary/30 bg-primary/5">
-            <p class="text-body-md italic text-on-surface-variant leading-relaxed">"wappCAST transformed how we reach customers. WhatsApp turned out to be our best acquisition channel."</p>
+            <p class="text-body-md italic text-on-surface-variant leading-relaxed">"wappCAST transformed how we reach customers. WhatsApp turned out to be our best acquisition channel, backed by an awesome support team."</p>
             <div class="mt-8 flex items-center gap-4">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face" alt="Siti Hajar" class="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-md" />
+              <img src="/companies/siti.png" alt="Siti Hajar" class="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-md" />
               <div>
                 <h4 class="font-bold text-body-md">Siti Hajar</h4>
                 <p class="text-label-sm text-on-surface-variant">Growth Lead</p>
@@ -541,19 +541,19 @@
             </div>
           </div>
           <div class="glass-card p-6 rounded-xl min-h-[250px] flex flex-col justify-between hover:border-primary/30 transition-all">
-            <p class="text-body-md italic text-on-surface-variant leading-relaxed">"We were burning ROI on ads until we found wappCAST. Now we get consistent leads and great data."</p>
+            <p class="text-body-md italic text-on-surface-variant leading-relaxed">"We were burning ROI on ads until we found wappCAST. Now we get consistent leads, a stronger pipeline, and great data to back it up. Highly recommended."</p>
             <div class="mt-8 flex items-center gap-4">
-              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face" alt="Ashok Rakshit" class="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-md" />
+              <img src="/companies/ashok.png" alt="Ashok Rakshit" class="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-md" />
               <div>
                 <h4 class="font-bold text-body-md">Ashok Rakshit</h4>
-                <p class="text-label-sm text-on-surface-variant">Campaign Strategist</p>
+                <p class="text-label-sm text-on-surface-variant">Campaign Strategist, APAC</p>
               </div>
             </div>
           </div>
           <div class="glass-card p-6 rounded-xl min-h-[250px] flex flex-col justify-between hover:border-primary/30 transition-all">
-            <p class="text-body-md italic text-on-surface-variant leading-relaxed">"Reply rates around 90%. Combined with high-quality data, the results have been outstanding."</p>
+            <p class="text-body-md italic text-on-surface-variant leading-relaxed">"With over 15 years in sales, I've watched outreach channels evolve firsthand—and WhatsApp is one of the most effective today. I'm consistently seeing reply rates around 90%, and combined with their high-quality data and excellent support, the results have been outstanding. Highly recommended."</p>
             <div class="mt-8 flex items-center gap-4">
-              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Marc Lynam" class="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-md" />
+              <img src="/companies/marc.png" alt="Marc Lynam" class="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-md" />
               <div>
                 <h4 class="font-bold text-body-md">Marc Lynam</h4>
                 <p class="text-label-sm text-on-surface-variant">Founder</p>
@@ -697,20 +697,12 @@ const faqs = [
     answer: "Yes! You can set up chatbots to handle FAQs, qualify leads, and even process bookings or payments directly within WhatsApp."
   },
   {
-    question: "What are the pricing plans?",
-    answer: "We offer a Business Plan at ₹9,999/year and a Lifetime Agency License for ₹14,999 (one-time). Both include unlimited team members and no markup fees."
-  },
-  {
     question: "Do you provide support during setup?",
     answer: "Absolutely. We provide comprehensive documentation and human support to help you get your API approved and your first campaign launched."
   },
   {
     question: "How is data safety handled?",
     answer: "Your data is encrypted and stored securely. We adhere to enterprise-grade security protocols to ensure your customer data remains private and compliant with data protection laws."
-  },
-  {
-    question: "Is there a refund policy?",
-    answer: "We offer a 7-day money-back guarantee if you're not satisfied with the platform, provided you haven't violated our terms of service."
   }
 ]
 </script>

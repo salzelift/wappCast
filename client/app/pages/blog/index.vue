@@ -62,6 +62,7 @@
               :alt="post.title" 
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
               :src="getImageUrl(post.image_url)"
+              referrerpolicy="no-referrer"
               @error="(e) => e.target.src = TEMPLATE_IMAGE"
             />
             <div class="absolute top-4 left-4">
@@ -300,10 +301,18 @@ const TEMPLATE_IMAGE = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCikw
 // Helper: Format image URLs
 const getImageUrl = (url) => {
   if (!url) return TEMPLATE_IMAGE
-  if (url.startsWith('http://') || url.startsWith('https://')) {
-    return url
+  
+  let processedUrl = url
+  if (processedUrl.includes('localhost:') || processedUrl.includes('127.0.0.1:')) {
+    processedUrl = processedUrl.replace(/localhost:\d+|127\.0\.0\.1:\d+/, '206.189.131.166:8080')
+  } else if (processedUrl.includes('localhost') || processedUrl.includes('127.0.0.1')) {
+    processedUrl = processedUrl.replace(/localhost|127\.0\.0\.1/, '206.189.131.166:8080')
   }
-  return `http://206.189.131.166:8080/storage/${url}`
+
+  if (processedUrl.startsWith('http://') || processedUrl.startsWith('https://')) {
+    return processedUrl
+  }
+  return `http://206.189.131.166:8080/storage/${processedUrl}`
 }
 
 // Helper: Format date

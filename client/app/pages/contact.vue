@@ -315,10 +315,6 @@ const contactFaqs = [
   {
     question: "Do you offer trials?",
     answer: "Yes, we offer a 7-day trial of our platform so you can explore the features and build your first automation flow before committing."
-  },
-  {
-    question: "What is your refund policy?",
-    answer: "We offer a pro-rated refund policy within the first 14 days if you're not satisfied with the platform. Conditions apply based on usage."
   }
 ]
 </script>

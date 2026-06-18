@@ -91,7 +91,7 @@
         <section class="space-y-4">
           <h2 class="text-headline-sm font-bold text-on-surface border-l-4 border-primary pl-4">7. Refund Policy</h2>
           <p>
-            Platform subscription fees and WhatsApp conversation charges are non-refundable, except in one case: if the WhatsApp Business API fails to activate on your dashboard due to a fault on our side, you are eligible for a refund of the platform fee. Refund requests must be made within 14 days of purchase. This policy does not limit any rights you have under applicable law that cannot be waived.
+            All sales are final. Platform subscription fees, one-time license fees, and WhatsApp conversation charges are strictly non-refundable under any circumstances. We encourage users to evaluate the Service and build automation flows during our 7-day trial period prior to making a purchase decision.
           </p>
         </section>
 
