@@ -203,7 +203,7 @@ const sharePost = async () => {
 }
 
 // Fetch single blog post from Backend reactively watching page query
-const { data: apiResponse } = await useFetch(() => `http://localhost:8000/api/blogs/${route.params.slug}`, {
+const { data: apiResponse } = await useFetch(() => `http://206.189.131.166:8080/api/blogs/${route.params.slug}`, {
   query: computed(() => ({ page: relatedPage.value })),
   watch: [relatedPage]
 })
@@ -251,7 +251,7 @@ const displayedRelatedPages = computed(() => {
 })
 
 // Fetch categories from Backend
-const { data: categoriesResponse } = await useFetch('http://localhost:8000/api/categories')
+const { data: categoriesResponse } = await useFetch('http://206.189.131.166:8080/api/categories')
 const categoriesList = computed(() => categoriesResponse.value?.data || [])
 
 // Map category IDs to names for O(1) lookups in template
@@ -280,7 +280,7 @@ const getImageUrl = (url) => {
   if (url.startsWith('http://') || url.startsWith('https://')) {
     return url
   }
-  return `http://localhost:8000/storage/${url}`
+  return `http://206.189.131.166:8080/storage/${url}`
 }
 
 // Helper: Format date

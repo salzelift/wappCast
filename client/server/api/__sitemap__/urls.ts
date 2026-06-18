@@ -16,8 +16,8 @@ export default defineSitemapEventHandler(async () => {
   const urls: { loc: string; lastmod?: string }[] = []
   try {
     // Fetch page 1 first to determine how many pages we need to fetch
-    const firstPageResponse = await $fetch<ApiResponse>('http://localhost:8000/api/blogs?page=1')
-    
+    const firstPageResponse = await $fetch<ApiResponse>('http://206.189.131.166:8080/api/blogs?page=1')
+
     if (firstPageResponse?.data && Array.isArray(firstPageResponse.data)) {
       // Map URLs from the first page
       for (const blog of firstPageResponse.data) {
@@ -36,7 +36,7 @@ export default defineSitemapEventHandler(async () => {
       const fetchPromises = []
       for (let page = 2; page <= lastPage; page++) {
         fetchPromises.push(
-          $fetch<ApiResponse>(`http://localhost:8000/api/blogs?page=${page}`)
+          $fetch<ApiResponse>(`http://206.189.131.166:8080/api/blogs?page=${page}`)
             .then((res) => {
               if (res?.data && Array.isArray(res.data)) {
                 for (const blog of res.data) {

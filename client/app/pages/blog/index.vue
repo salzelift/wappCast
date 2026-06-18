@@ -143,7 +143,7 @@ const route = useRoute()
 const router = useRouter()
 
 // Fetch categories from Backend
-const { data: categoriesResponse } = await useFetch('http://localhost:8000/api/categories')
+const { data: categoriesResponse } = await useFetch('http://206.189.131.166:8080/api/categories')
 const categoriesList = computed(() => categoriesResponse.value?.data || [])
 
 // Match URL category query on load
@@ -207,9 +207,9 @@ const categoriesMap = computed(() => {
 // Build computed Fetch URL and Parameters based on selection
 const fetchUrl = computed(() => {
   if (selectedCategory.value) {
-    return `http://localhost:8000/api/categories/${selectedCategory.value.slug}`
+    return `http://206.189.131.166:8080/api/categories/${selectedCategory.value.slug}`
   }
-  return `http://localhost:8000/api/blogs`
+  return `http://206.189.131.166:8080/api/blogs`
 })
 
 const fetchParams = computed(() => {
@@ -303,7 +303,7 @@ const getImageUrl = (url) => {
   if (url.startsWith('http://') || url.startsWith('https://')) {
     return url
   }
-  return `http://localhost:8000/storage/${url}`
+  return `http://206.189.131.166:8080/storage/${url}`
 }
 
 // Helper: Format date
