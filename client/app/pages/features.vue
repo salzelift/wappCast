@@ -27,7 +27,7 @@
         <div class="relative group max-w-5xl mx-auto">
           <div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-2xl group-hover:blur-3xl transition duration-500 opacity-75"></div>
           <div class="relative glass-card rounded-3xl p-2 overflow-hidden shadow-2xl">
-            <img alt="wappCAST Dashboard Overview" class="w-full h-auto rounded-2xl shadow-xl" src="/features_dashboard_preview.png" />
+            <img alt="wappCAST Dashboard Overview" class="w-full h-auto rounded-2xl shadow-xl" src="/companies/features_dashboard.png" />
           </div>
         </div>
       </div>
@@ -53,12 +53,15 @@
             <p class="text-on-surface-variant font-body-md text-body-md mb-8 leading-relaxed flex-grow">
               Experience uncompromising safety with Meta verified BSP status. We provide green-tick assistance and dedicated support to keep your brand active and compliant.
             </p>
-            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-white/5 pt-6">
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-white/5 pt-6 mb-8">
               <li class="flex items-center gap-3 text-body-md text-on-surface-variant/90"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> Verified Meta BSP</li>
               <li class="flex items-center gap-3 text-body-md text-on-surface-variant/90"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> Green-tick assistance</li>
               <li class="flex items-center gap-3 text-body-md text-on-surface-variant/90"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> Live quality rating</li>
               <li class="flex items-center gap-3 text-body-md text-on-surface-variant/90"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> No personal numbers required</li>
             </ul>
+            <div class="h-48 md:h-56 lg:h-64 rounded-2xl overflow-hidden border border-white/10 mt-auto">
+              <img alt="Official Meta WhatsApp API" class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" src="/pricing_dashboard_mockup.png" />
+            </div>
           </div>
 
           <!-- Card 2: Real-Time Dashboard -->
@@ -74,8 +77,8 @@
               <li class="flex items-center gap-3 text-body-md text-on-surface-variant/90"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> Track delivery, read &amp; reply rates</li>
               <li class="flex items-center gap-3 text-body-md text-on-surface-variant/90"><span class="material-symbols-outlined text-primary text-[20px]">check_circle</span> Visual performance charts</li>
             </ul>
-            <div class="rounded-2xl overflow-hidden border border-white/10 mt-auto">
-              <img alt="Dashboard Analytics Preview" class="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbRkf0QxplKFTvDSlhLVyv5dRE_PqL3qLRtq8NBOHiZiuy28N2DbGAEZ5srh5DgFCHUf-iGG8t48tjagvGDwW5vzysDv5IgiXKD6VMgz8zMtNVQLZpflqT51tgCnZ95kIMMVoD7NpYNu158gPUiJnHjrBb3O2U01xz6fOYQBuPiaCEBLvrbqU6OfDMChIHjxrdj-nWCF33E2HwfY6RqRfgp8QH-3BPD3ia6UkN_05IeqE_QVgdcpCURfXje28c0otlQ9hBkgrszL5E"/>
+            <div class="h-48 md:h-56 lg:h-64 rounded-2xl overflow-hidden border border-white/10 mt-auto">
+              <img alt="Dashboard Analytics Preview" class="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500" src="/features_dashboard_preview.png" />
             </div>
           </div>
 

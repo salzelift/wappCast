@@ -15,7 +15,7 @@
         </p>
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-          <NuxtLink to="/demo" target="_blank" class="btn-primary px-10 py-5 rounded-full text-on-primary font-extrabold text-body-lg shadow-2xl w-full sm:w-auto hover:scale-105 active:scale-95 transition-all text-center">
+          <NuxtLink to="/contact" target="_blank" class="btn-primary px-10 py-5 rounded-full text-on-primary font-extrabold text-body-lg shadow-2xl w-full sm:w-auto hover:scale-105 active:scale-95 transition-all text-center">
             Get a Free Sample File
           </NuxtLink>
           <NuxtLink to="/contact" target="_blank" class="px-10 py-5 rounded-full border border-border-subtle glass-card font-bold hover:bg-white/5 transition-colors w-full sm:w-auto text-center">

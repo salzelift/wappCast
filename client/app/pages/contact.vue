@@ -61,7 +61,7 @@
                 class="w-full bg-surface-container-low border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-on-surface" 
                 placeholder="How can we help you?" 
                 required 
-                rows="4"
+                rows="8"
               ></textarea>
             </div>
             
@@ -181,7 +181,7 @@
         <img alt="Founder" class="w-12 h-12 rounded-full border-2 border-primary object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9oC_cw3w5ldNLAHXZsIFvp-RMQ5zaqlLDQV3cUs0Kl_VTe3KQLhbEZz76zK2liXvAGQ3mz3I-L8sI_UgDjxiYssDjDN1wRMSB0cqj-ej4e3gKgSoHm2KRV-pwGdn6g2fiVNyTIzgEUAXw7_pbkjL7GGWvLDJ_5NMyLriI6Hf2zH7Lr8hNHB1yZGagBmc6ma58yw05tJ3BJDbTDFTY17gU35sJHfkcsP2Q7-rGf877Ur4NslAZT5MBi4gI6ouVFq9mT0XQ6it-imLl"/>
         <div class="text-left">
           <p class="font-bold text-on-surface">Anish Kumar</p>
-          <p class="text-on-surface-variant text-sm">Founder, wappCAST</p>
+          <p class="text-on-surface-variant text-sm">Team, wappCAST</p>
         </div>
       </div>
     </div>

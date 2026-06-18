@@ -46,7 +46,7 @@
       <div class="max-w-container-max mx-auto px-margin-mobile">
         <p class="text-center text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest mb-10 opacity-70">Trusted by Businesses Worldwide</p>
         
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 items-center justify-items-center">
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12 items-center just">
           <!-- Booksy -->
           <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
             <img src="/companies/booksy.png" class="h-8 w-auto object-contain" alt="Booksy" />
@@ -90,6 +90,9 @@
           <!-- Amura -->
           <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
             <img src="/companies/amura.png" class="h-9 w-auto object-contain" alt="Amura" />
+          </div>
+          <div class="brand-logo-card reveal-on-scroll flex items-center justify-center transition-all duration-300 hover:scale-110 opacity-70 hover:opacity-100">
+            <img src="/companies/ascenty.png" class="h-9 w-auto object-contain" alt="Ascenty" />
           </div>
         </div>
       </div>
@@ -184,7 +187,7 @@
         <!-- Row 3: Visual Feature Showcases Set 1 -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <!-- Connect Instantly -->
-          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between min-h-[380px] h-full border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
             <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
               <div class="w-24 h-32 bg-surface-container border border-border-subtle/50 rounded-t-lg shadow-lg relative p-2 overflow-hidden flex flex-col">
                 <div class="h-1 bg-surface-container-highest rounded-full w-8 mx-auto mb-2"></div>
@@ -203,7 +206,7 @@
             </div>
           </div>
           <!-- Capture & Engage Leads -->
-          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between min-h-[380px] h-full border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
             <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
               <div class="relative flex items-center justify-center w-full h-full">
                 <!-- U-Magnet SVG -->
@@ -223,15 +226,15 @@
             </div>
           </div>
           <!-- Drive More Conversions -->
-          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between min-h-[380px] h-full border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
             <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
               <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
               <div class="relative w-32 h-20 flex items-end">
-                <svg class="absolute inset-0 w-full h-full text-primary" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 45 Q 25 35, 50 40 T 100 10" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none" class="drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]"/>
-                  <circle cx="100" cy="10" r="4" fill="currentColor"/>
+                <svg class="absolute inset-0 w-full h-full text-primary overflow-visible" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 45 Q 25 35, 50 40 T 96 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none" class="drop-shadow-[0_0_8px_rgba(16,185,129,0.4)] animate-chart-line"/>
+                  <circle cx="96" cy="12" r="4" fill="currentColor" class="animate-chart-circle"/>
                 </svg>
-                <div class="absolute -top-4 right-0 glass-card px-2 py-0.5 rounded border border-primary/30 flex items-center gap-1 shadow-lg text-[10px] font-bold text-on-surface animate-bounce">
+                <div class="absolute -top-6 right-0 glass-card px-2 py-0.5 rounded border border-primary/30 flex items-center gap-1 shadow-lg text-[10px] font-bold text-on-surface animate-bounce">
                   <span class="material-symbols-outlined text-[10px] text-primary">payments</span>
                   <span>$ Earned</span>
                 </div>
@@ -243,7 +246,7 @@
             </div>
           </div>
           <!-- Team Inbox -->
-          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between min-h-[380px] h-full border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
             <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
               <div class="w-36 h-24 bg-surface-container border border-border-subtle/50 rounded-lg shadow-md overflow-hidden flex">
                 <div class="w-1/3 border-r border-border-subtle/50 bg-surface-container p-1 space-y-1">
@@ -277,7 +280,7 @@
         <!-- Row 4: Visual Feature Showcases Set 2 -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Automate Workflows -->
-          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between min-h-[380px] h-full border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
             <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
               <div class="relative w-36 h-20 flex items-center justify-between px-2">
                 <svg class="absolute inset-0 w-full h-full text-border-subtle" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -300,7 +303,7 @@
             </div>
           </div>
           <!-- Broadcast Campaigns -->
-          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between min-h-[380px] h-full border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
             <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
               <div class="relative flex items-center justify-center">
                 <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(16,185,129,0.2)]">
@@ -323,7 +326,7 @@
             </div>
           </div>
           <!-- Track & Measure -->
-          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between min-h-[380px] h-full border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
             <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
               <div class="w-32 h-20 bg-surface-container border border-border-subtle/50 rounded-lg shadow-md p-2 flex justify-between gap-2">
                 <div class="w-1/2 flex items-center justify-center">
@@ -346,7 +349,7 @@
             </div>
           </div>
           <!-- Verified & Reliable -->
-          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between h-[380px] border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between min-h-[380px] h-full border-primary/10 hover:border-primary/40 transition-all duration-300 group reveal-on-scroll">
             <div class="w-full h-40 bg-surface-container-low rounded-xl border border-border-subtle/30 overflow-hidden relative flex items-center justify-center">
               <div class="relative flex items-center justify-center">
                 <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">
@@ -508,82 +511,7 @@
       </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="py-section-padding bg-background" id="pricing">
-      <div class="max-w-container-max mx-auto px-margin-mobile">
-        <div class="text-center mb-16">
-          <h2 class="text-headline-lg font-headline-lg mb-6">Simple, Transparent Pricing</h2>
-          <p class="text-on-surface-variant font-body-md text-body-md">Stop paying lakhs for the same features. Choose the plan that scales with you.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter max-w-5xl mx-auto">
-          <!-- Business Plan -->
-          <div class="glass-card rounded-2xl p-10 relative flex flex-col border-primary/20 bg-surface-container-low shadow-2xl">
-            <div class="absolute top-0 right-10 -translate-y-1/2 bg-primary text-on-primary-container px-4 py-1 rounded-full text-label-sm font-label-sm font-bold">SAVING 88%</div>
-            <h3 class="text-headline-md font-headline-md mb-2">Business Plan</h3>
-            <div class="mb-6">
-              <span class="text-on-surface-variant line-through text-body-md">
-                {{ currency === 'INR' ? '₹ 14,999' : '$ 180' }}
-              </span>
-              <div class="flex items-baseline gap-2">
-                <span class="text-[48px] font-extrabold text-primary">
-                  {{ currency === 'INR' ? '₹9,999' : '$120' }}
-                </span>
-                <span class="text-on-surface-variant font-label-sm">/ Year</span>
-              </div>
-            </div>
-            <ul class="space-y-4 mb-10 flex-grow">
-              <li class="flex items-center gap-3 text-body-md font-body-md">
-                <span class="material-symbols-outlined text-primary">check_circle</span> Unlimited Broadcasting
-              </li>
-              <li class="flex items-center gap-3 text-body-md font-body-md">
-                <span class="material-symbols-outlined text-primary">check_circle</span> Unlimited Team Members
-              </li>
-              <li class="flex items-center gap-3 text-body-md font-body-md">
-                <span class="material-symbols-outlined text-primary">check_circle</span> No-Code Flow Builder
-              </li>
-              <li class="flex items-center gap-3 text-body-md font-body-md">
-                <span class="material-symbols-outlined text-primary">check_circle</span> CRM Integrations
-              </li>
-              <li class="flex items-center gap-3 text-body-md font-body-md">
-                <span class="material-symbols-outlined text-primary">check_circle</span> Official Meta API
-              </li>
-            </ul>
-            <NuxtLink to="/contact" class="btn-gradient w-full py-4 rounded-xl text-on-primary-container font-bold text-center block">Book a Demo</NuxtLink>
-          </div>
-          <!-- Reseller Plan -->
-          <div class="glass-card rounded-2xl p-10 relative flex flex-col border-secondary/20 hover:border-secondary/40 transition-all">
-            <h3 class="text-headline-md font-headline-md mb-2">Lifetime License</h3>
-            <div class="mb-6">
-              <span class="text-on-surface-variant line-through text-body-md">
-                {{ currency === 'INR' ? '₹ 24,999' : '$ 299' }}
-              </span>
-              <div class="flex items-baseline gap-2">
-                <span class="text-[48px] font-extrabold text-secondary">
-                  {{ currency === 'INR' ? '₹14,999' : '$179' }}
-                </span>
-                <span class="text-on-surface-variant font-label-sm">One-Time</span>
-              </div>
-            </div>
-            <p class="text-on-surface-variant mb-6 text-body-md">Perfect for Agencies &amp; Resellers. Add unlimited clients and keep 100% revenue.</p>
-            <ul class="space-y-4 mb-10 flex-grow">
-              <li class="flex items-center gap-3 text-body-md font-body-md">
-                <span class="material-symbols-outlined text-secondary">check_circle</span> No wappCAST Branding
-              </li>
-              <li class="flex items-center gap-3 text-body-md font-body-md">
-                <span class="material-symbols-outlined text-secondary">check_circle</span> Multi-Client Management
-              </li>
-              <li class="flex items-center gap-3 text-body-md font-body-md">
-                <span class="material-symbols-outlined text-secondary">check_circle</span> Agency Dashboard
-              </li>
-              <li class="flex items-center gap-3 text-body-md font-body-md">
-                <span class="material-symbols-outlined text-secondary">check_circle</span> White-Label Options
-              </li>
-            </ul>
-            <NuxtLink to="/contact" class="w-full py-4 rounded-xl border border-secondary text-secondary font-bold text-center hover:bg-secondary/10 transition-colors block">Become a Partner</NuxtLink>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <!-- Testimonials Section -->
     <section class="py-section-padding bg-surface-container-lowest">
@@ -595,7 +523,7 @@
           <div class="glass-card p-6 rounded-xl min-h-[250px] flex flex-col justify-between hover:border-primary/30 transition-all">
             <p class="text-body-md italic text-on-surface-variant leading-relaxed">"The data tracking on wappCAST is amazing. We can see exactly who is engaging with our messages in real-time."</p>
             <div class="mt-8 flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">AS</div>
+              <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&h=150&fit=crop&crop=face" alt="Amandeep Sahota" class="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-md" />
               <div>
                 <h4 class="font-bold text-body-md">Amandeep Sahota</h4>
                 <p class="text-label-sm text-on-surface-variant">Marketing Director</p>
@@ -605,7 +533,7 @@
           <div class="glass-card p-6 rounded-xl min-h-[250px] flex flex-col justify-between hover:border-primary/30 transition-all border-primary/30 bg-primary/5">
             <p class="text-body-md italic text-on-surface-variant leading-relaxed">"wappCAST transformed how we reach customers. WhatsApp turned out to be our best acquisition channel."</p>
             <div class="mt-8 flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">SH</div>
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face" alt="Siti Hajar" class="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-md" />
               <div>
                 <h4 class="font-bold text-body-md">Siti Hajar</h4>
                 <p class="text-label-sm text-on-surface-variant">Growth Lead</p>
@@ -615,7 +543,7 @@
           <div class="glass-card p-6 rounded-xl min-h-[250px] flex flex-col justify-between hover:border-primary/30 transition-all">
             <p class="text-body-md italic text-on-surface-variant leading-relaxed">"We were burning ROI on ads until we found wappCAST. Now we get consistent leads and great data."</p>
             <div class="mt-8 flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">AR</div>
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face" alt="Ashok Rakshit" class="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-md" />
               <div>
                 <h4 class="font-bold text-body-md">Ashok Rakshit</h4>
                 <p class="text-label-sm text-on-surface-variant">Campaign Strategist</p>
@@ -625,7 +553,7 @@
           <div class="glass-card p-6 rounded-xl min-h-[250px] flex flex-col justify-between hover:border-primary/30 transition-all">
             <p class="text-body-md italic text-on-surface-variant leading-relaxed">"Reply rates around 90%. Combined with high-quality data, the results have been outstanding."</p>
             <div class="mt-8 flex items-center gap-4">
-              <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">ML</div>
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Marc Lynam" class="w-10 h-10 rounded-full object-cover border border-primary/20 shadow-md" />
               <div>
                 <h4 class="font-bold text-body-md">Marc Lynam</h4>
                 <p class="text-label-sm text-on-surface-variant">Founder</p>
@@ -786,3 +714,48 @@ const faqs = [
   }
 ]
 </script>
+
+<style scoped>
+@keyframes draw-chart-line {
+  from {
+    stroke-dashoffset: 120;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pop-circle {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-chart-line {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: draw-chart-line 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-chart-circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pop-circle 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 1.6s both;
+}
+
+.group:hover .animate-chart-line {
+  filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.8));
+  transition: filter 0.3s ease;
+}
+
+.group:hover .animate-chart-circle {
+  transform: scale(1.5);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+</style>
+
