@@ -249,7 +249,7 @@ const toggleFaq = (idx) => {
 
 const submitForm = async() => {
   status.value = 'sending'
-  const resp = await $fetch('http://206.189.131.166:8080/api/contacts', {
+  const resp = await $fetch('/api/contacts', {
     method: 'POST',
     body: form,
     headers: {

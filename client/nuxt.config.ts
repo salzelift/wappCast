@@ -4,6 +4,10 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  routeRules: {
+    '/api/**': { proxy: 'http://206.189.131.166:8080/api/**' },
+    '/storage/**': { proxy: 'http://206.189.131.166:8080/storage/**' }
+  },
   modules: ['@nuxtjs/seo'],
   css: ["./app/assets/css/main.css"],
   

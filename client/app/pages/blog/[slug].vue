@@ -203,7 +203,7 @@ const sharePost = async () => {
 }
 
 // Fetch single blog post from Backend reactively watching page query
-const { data: apiResponse } = await useFetch(() => `http://206.189.131.166:8080/api/blogs/${route.params.slug}`, {
+const { data: apiResponse } = await useFetch(() => `/api/blogs/${route.params.slug}`, {
   query: computed(() => ({ page: relatedPage.value })),
   watch: [relatedPage]
 })
@@ -251,7 +251,7 @@ const displayedRelatedPages = computed(() => {
 })
 
 // Fetch categories from Backend
-const { data: categoriesResponse } = await useFetch('http://206.189.131.166:8080/api/categories')
+const { data: categoriesResponse } = await useFetch('/api/categories')
 const categoriesList = computed(() => categoriesResponse.value?.data || [])
 
 // Map category IDs to names for O(1) lookups in template
@@ -279,16 +279,20 @@ const getImageUrl = (url) => {
   if (!url) return TEMPLATE_IMAGE
   
   let processedUrl = url
-  if (processedUrl.includes('localhost:') || processedUrl.includes('127.0.0.1:')) {
-    processedUrl = processedUrl.replace(/localhost:\d+|127\.0\.0\.1:\d+/, '206.189.131.166:8080')
-  } else if (processedUrl.includes('localhost') || processedUrl.includes('127.0.0.1')) {
-    processedUrl = processedUrl.replace(/localhost|127\.0\.0\.1/, '206.189.131.166:8080')
-  }
-
   if (processedUrl.startsWith('http://') || processedUrl.startsWith('https://')) {
+    if (
+      processedUrl.includes('localhost') || 
+      processedUrl.includes('127.0.0.1') || 
+      processedUrl.includes('206.189.131.166')
+    ) {
+      const storageIdx = processedUrl.indexOf('/storage/')
+      if (storageIdx !== -1) {
+        return processedUrl.substring(storageIdx)
+      }
+    }
     return processedUrl
   }
-  return `http://206.189.131.166:8080/storage/${processedUrl}`
+  return `/storage/${processedUrl}`
 }
 
 // Helper: Format date
