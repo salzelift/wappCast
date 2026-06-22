@@ -126,15 +126,15 @@
             <div class="glass-card p-6 rounded-xl md:col-span-2 group hover:border-primary/50 transition-colors">
               <span class="material-symbols-outlined text-primary text-3xl mb-4">location_on</span>
               <h4 class="font-headline-md text-xl mb-2 text-on-surface">Head Office</h4>
-              <p class="text-on-surface-variant">Level 7, Tech Park One, Bannerghatta Main Road, Bengaluru, Karnataka 560076, India</p>
+              <p class="text-on-surface-variant">Opp. Infinity Motors, Patorkuchi Road Basistha, Guwahati, Assam 781029</p>
             </div>
           </div>
         </div>
         
         <!-- Embedded Map placeholder -->
         <div class="w-full h-48 rounded-2xl overflow-hidden glass-card">
-          <div class="w-full h-full grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100" data-location="Bengaluru, India">
-            <img alt="Map Location" class="w-full h-full object-cover" data-alt="A cinematic night-time view of a high-tech business district in a metropolitan city like Bengaluru. The urban architecture is modern with sleek glass skyscrapers glowing with inner office lights and exterior neon accents. The scene is shot from a high angle, capturing the geometric patterns of the city streets and the technological buzz of the environment. The atmosphere is sophisticated and global." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcqDnHVIEZcTXEaI1d7I-_THPOmhzyyqtJKkeyhTiiyTn7nGDrUGqqGLbxyODLAsi1uaZgYkqNFAv-3nBiplxEFP1UDhJGp3kuRSXuG7iyVmB37fwgVD4b0FbK7Kky95hI_hdk2kfKD79zFukz3o5KvwHB_5z9NqH9sABnkohTxFG1t9tYG0R_btBpDLkt0CJroy0DNbPeMX8CY3ar7ZA9uP0ojxfS1fbVQzcc9mRpnNaXB3rkGYMhjzBHmm-wcBioiu0XMNXhAy7P"/>
+          <div class="w-full h-full grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100" data-location="Guwahati, India">
+            <img alt="Map Location" class="w-full h-full object-cover" data-alt="A cinematic view of Guwahati, Assam showing the city landscape and hills, reflecting wappCAST's business location." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcqDnHVIEZcTXEaI1d7I-_THPOmhzyyqtJKkeyhTiiyTn7nGDrUGqqGLbxyODLAsi1uaZgYkqNFAv-3nBiplxEFP1UDhJGp3kuRSXuG7iyVmB37fwgVD4b0FbK7Kky95hI_hdk2kfKD79zFukz3o5KvwHB_5z9NqH9sABnkohTxFG1t9tYG0R_btBpDLkt0CJroy0DNbPeMX8CY3ar7ZA9uP0ojxfS1fbVQzcc9mRpnNaXB3rkGYMhjzBHmm-wcBioiu0XMNXhAy7P"/>
           </div>
         </div>
       </div>
