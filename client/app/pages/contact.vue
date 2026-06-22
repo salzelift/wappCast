@@ -178,9 +178,7 @@
         "However you reach out, you'll get a straight answer from someone who actually knows the product. No bots running in circles, no runaround. Let's get you sorted."
       </p>
       <div class="flex items-center justify-center gap-4">
-        <img alt="Founder" class="w-12 h-12 rounded-full border-2 border-primary object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9oC_cw3w5ldNLAHXZsIFvp-RMQ5zaqlLDQV3cUs0Kl_VTe3KQLhbEZz76zK2liXvAGQ3mz3I-L8sI_UgDjxiYssDjDN1wRMSB0cqj-ej4e3gKgSoHm2KRV-pwGdn6g2fiVNyTIzgEUAXw7_pbkjL7GGWvLDJ_5NMyLriI6Hf2zH7Lr8hNHB1yZGagBmc6ma58yw05tJ3BJDbTDFTY17gU35sJHfkcsP2Q7-rGf877Ur4NslAZT5MBi4gI6ouVFq9mT0XQ6it-imLl"/>
         <div class="text-left">
-          <p class="font-bold text-on-surface">Anish Kumar</p>
           <p class="text-on-surface-variant text-sm">Team, wappCAST</p>
         </div>
       </div>
@@ -249,7 +247,7 @@ const toggleFaq = (idx) => {
 
 const submitForm = async() => {
   status.value = 'sending'
-  const resp = await $fetch('/api/contacts', {
+  const resp = await $fetch('http://206.189.131.166:8080/api/contacts', {
     method: 'POST',
     body: form,
     headers: {
