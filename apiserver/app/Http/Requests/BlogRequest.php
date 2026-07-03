@@ -16,7 +16,7 @@ class BlogRequest extends FormRequest
                 $this->isMethod('POST') ? 'required' : 'nullable',
                 'image',
                 'mimes:jpg,jpeg,png,webp',
-                'max:2048',
+                'max:51200',
             ],
             'content' => ['required'],
             'tags' => ['required'],

@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string('image_url');
             $table->longText('content');
             $table->json('tags');
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->string('slug');
             $table->timestamps();
         });

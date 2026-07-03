@@ -28,7 +28,7 @@
           </h1>
         </div>
       </div>
-      <div class="relative w-full aspect-[21/9] rounded-3xl overflow-hidden border border-subtle group">
+      <div class="relative w-full aspect-video rounded-3xl overflow-hidden border border-subtle group">
         <img :alt="post.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" :src="getImageUrl(post.image_url)" referrerpolicy="no-referrer" @error="(e) => e.target.src = TEMPLATE_IMAGE"/>
         <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
       </div>
