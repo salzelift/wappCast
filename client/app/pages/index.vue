@@ -24,18 +24,150 @@
         </div>
         
         <!-- Dashboard Preview -->
-        <div class="mt-8 relative group max-w-4xl mx-auto animate-hero-preview">
-          <div class="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl group-hover:blur-2xl transition duration-500 opacity-75"></div>
-          <div class="relative glass-card rounded-2xl p-2 overflow-hidden shadow-2xl">
-            <iframe 
-              class="w-full aspect-video rounded-xl" 
-              src="https://www.youtube.com/embed/npl7TwHie40" 
-              title="wappCAST Dashboard Preview" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerpolicy="strict-origin-when-cross-origin" 
-              allowfullscreen
-            ></iframe>
+        <div 
+          ref="cardRef"
+          class="mt-8 relative group max-w-4xl mx-auto animate-hero-preview transition-all duration-300 ease-out"
+          :style="{ transform: transformStyle }"
+          @mousemove="handleMouseMove"
+          @mouseleave="handleMouseLeave"
+        >
+          <!-- Dynamic Radial Glow Background -->
+          <div 
+            class="absolute -inset-2 rounded-3xl blur-2xl transition duration-500 opacity-60 group-hover:opacity-100"
+            :style="glowBgStyle"
+          ></div>
+          
+          <!-- Mock Browser Window Container -->
+          <div class="relative glass-card rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex flex-col transition-all duration-300 group-hover:border-primary/30">
+            
+            <!-- Browser Header -->
+            <div class="flex items-center justify-between px-4 py-3 bg-surface-container/60 border-b border-border-subtle/50 backdrop-blur-md">
+              <!-- Window dots -->
+              <div class="flex items-center gap-1.5 w-16">
+                <span class="w-3 h-3 rounded-full bg-[#ff5f56] shadow-sm"></span>
+                <span class="w-3 h-3 rounded-full bg-[#ffbd2e] shadow-sm"></span>
+                <span class="w-3 h-3 rounded-full bg-[#27c93f] shadow-sm"></span>
+              </div>
+              
+              <!-- Address Bar -->
+              <div class="flex-1 max-w-md mx-auto bg-surface-container-lowest/80 border border-border-subtle/40 rounded-lg py-1 px-3 flex items-center justify-center gap-2 text-label-sm font-medium text-on-surface-variant/80 select-none">
+                <span class="material-symbols-outlined text-[14px] text-primary">lock</span>
+                <span class="tracking-wide">app.wappcast.com</span>
+              </div>
+              
+              <!-- Spacer for layout balance -->
+              <div class="w-16 flex justify-end gap-3 text-on-surface-variant/60">
+                <span class="material-symbols-outlined text-[18px]">bookmark</span>
+                <span class="material-symbols-outlined text-[18px]">more_horiz</span>
+              </div>
+            </div>
+            
+            <!-- Interactive Video Player Area -->
+            <div class="relative w-full aspect-video group/video overflow-hidden bg-black/40">
+              <video 
+                ref="videoRef"
+                class="w-full h-full object-cover cursor-pointer"
+                src="/export-1782648953366.mp4"
+                autoplay
+                loop
+                muted
+                playsinline
+                @timeupdate="onTimeUpdate"
+                @loadedmetadata="onLoadedMetadata"
+                @click="togglePlay"
+              ></video>
+              
+              <!-- Video Overlay (Appears on hover or when paused) -->
+              <div 
+                class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/40 flex flex-col justify-between p-4 transition-all duration-300"
+                :class="[isPlaying ? 'opacity-0 group-hover/video:opacity-100' : 'opacity-100 bg-black/60']"
+              >
+                <!-- Top Overlay Info & Chapters -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                  <span class="bg-primary/20 text-primary border border-primary/30 backdrop-blur-md px-3 py-1 rounded-full text-label-sm font-semibold flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> wappCAST Tour
+                  </span>
+                  
+                  <!-- Interactive Video Chapters -->
+                  <div class="flex items-center gap-1 bg-black/40 backdrop-blur-md p-1 rounded-full border border-white/5">
+                    <button 
+                      v-for="(chapter, idx) in chapters" 
+                      :key="idx"
+                      @click.stop="seekToChapter(chapter.timeFraction)"
+                      class="px-3 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer whitespace-nowrap"
+                      :class="[
+                        currentChapterIndex === idx 
+                          ? 'bg-primary text-on-primary shadow-lg scale-105' 
+                          : 'text-white/60 hover:text-white hover:bg-white/5'
+                      ]"
+                    >
+                      {{ chapter.name }}
+                    </button>
+                  </div>
+                </div>
+                
+                <!-- Center Big Play Button (shows only when paused or hovered) -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <button 
+                    @click.stop="togglePlay"
+                    class="pointer-events-auto w-16 h-16 rounded-full bg-primary/95 text-on-primary flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+                    aria-label="Play/Pause video"
+                  >
+                    <span class="material-symbols-outlined text-[36px] transition-transform duration-300">
+                      {{ isPlaying ? 'pause' : 'play_arrow' }}
+                    </span>
+                  </button>
+                </div>
+                
+                <!-- Custom Bottom Controls Bar -->
+                <div class="space-y-3 z-10 w-full" @click.stop>
+                  <!-- Custom Progress Bar -->
+                  <div 
+                    ref="progressContainerRef"
+                    class="relative h-1.5 w-full bg-white/20 rounded-full cursor-pointer hover:h-2 transition-all group/progress"
+                    @mousedown="startDrag"
+                  >
+                    <div 
+                      class="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-secondary rounded-full"
+                      :style="{ width: `${progressPercent}%` }"
+                    ></div>
+                    <!-- Handle -->
+                    <div 
+                      class="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-white border border-primary shadow opacity-0 group-hover/progress:opacity-100 transition-opacity"
+                      :style="{ left: `calc(${progressPercent}% - 7px)` }"
+                    ></div>
+                  </div>
+                  
+                  <!-- Bottom Row Controls -->
+                  <div class="flex items-center justify-between text-white font-medium text-label-sm">
+                    <div class="flex items-center gap-4">
+                      <!-- Play/Pause Button -->
+                      <button @click="togglePlay" class="hover:text-primary transition-colors cursor-pointer flex items-center" aria-label="Toggle Play">
+                        <span class="material-symbols-outlined text-[20px]">{{ isPlaying ? 'pause' : 'play_arrow' }}</span>
+                      </button>
+                      
+                      <!-- Volume/Mute Button -->
+                      <button @click="toggleMute" class="hover:text-primary transition-colors cursor-pointer flex items-center gap-1" aria-label="Toggle Mute">
+                        <span class="material-symbols-outlined text-[20px]">
+                          {{ isMuted ? 'volume_off' : 'volume_up' }}
+                        </span>
+                      </button>
+                      
+                      <!-- Time Tracker -->
+                      <div class="font-mono text-white/80 text-[12px] select-none">
+                        {{ formatTime(currentTime) }} / {{ formatTime(duration) }}
+                      </div>
+                    </div>
+                    
+                    <!-- Right side controls: Fullscreen -->
+                    <button @click="toggleFullscreen" class="hover:text-primary transition-colors cursor-pointer flex items-center" aria-label="Toggle Fullscreen">
+                      <span class="material-symbols-outlined text-[20px]">fullscreen</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
@@ -615,6 +747,163 @@ import { useState } from '#app'
 
 const currency = useState('currency')
 const activeFaqIdx = ref(null)
+
+// Video player state & refs
+const videoRef = ref(null)
+const isPlaying = ref(true)
+const isMuted = ref(true)
+const currentTime = ref(0)
+const duration = ref(0)
+const progressPercent = ref(0)
+const progressContainerRef = ref(null)
+
+// Video chapters configuration
+const chapters = [
+  { name: 'Inbox Overview', timeFraction: 0 },
+  { name: 'Campaigns', timeFraction: 0.25 },
+  { name: 'Flow Builder', timeFraction: 0.5 },
+  { name: 'Analytics', timeFraction: 0.75 }
+]
+const currentChapterIndex = ref(0)
+
+const seekToChapter = (fraction) => {
+  if (!videoRef.value || !duration.value) return
+  videoRef.value.currentTime = fraction * duration.value
+  isPlaying.value = true
+  videoRef.value.play().catch(() => {})
+}
+
+// 3D Tilt & Cursor Glow Interactions
+const cardRef = ref(null)
+const transformStyle = ref('perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)')
+const glowBgStyle = ref('background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.08) 50%, transparent 100%)')
+
+const handleMouseMove = (e) => {
+  if (!cardRef.value) return
+  const card = cardRef.value
+  const rect = card.getBoundingClientRect()
+  const x = e.clientX - rect.left
+  const y = e.clientY - rect.top
+  
+  // Subtle rotation (max 5 degrees)
+  const xc = rect.width / 2
+  const yc = rect.height / 2
+  const rotateX = -(y - yc) / (rect.height / 12)
+  const rotateY = (x - xc) / (rect.width / 12)
+  
+  transformStyle.value = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.015, 1.015, 1.015)`
+  
+  // Highlight glow follows mouse pointer
+  const px = (x / rect.width) * 100
+  const py = (y / rect.height) * 100
+  glowBgStyle.value = `background: radial-gradient(circle at ${px}% ${py}%, rgba(16, 185, 129, 0.45) 0%, rgba(5, 150, 105, 0.12) 40%, transparent 80%)`
+}
+
+const handleMouseLeave = () => {
+  transformStyle.value = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)'
+  glowBgStyle.value = 'background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.08) 50%, transparent 100%)'
+}
+
+const togglePlay = () => {
+  if (!videoRef.value) return
+  if (videoRef.value.paused) {
+    videoRef.value.play().then(() => {
+      isPlaying.value = true
+    }).catch(err => {
+      console.error("Playback failed:", err)
+    })
+  } else {
+    videoRef.value.pause()
+    isPlaying.value = false
+  }
+}
+
+const toggleMute = () => {
+  if (!videoRef.value) return
+  videoRef.value.muted = !videoRef.value.muted
+  isMuted.value = videoRef.value.muted
+}
+
+const onTimeUpdate = () => {
+  if (!videoRef.value) return
+  currentTime.value = videoRef.value.currentTime
+  
+  if (duration.value) {
+    progressPercent.value = (videoRef.value.currentTime / duration.value) * 100
+    
+    // Update active chapter fraction
+    const fraction = videoRef.value.currentTime / duration.value
+    let activeIdx = 0
+    for (let i = chapters.length - 1; i >= 0; i--) {
+      if (fraction >= chapters[i].timeFraction) {
+        activeIdx = i
+        break
+      }
+    }
+    currentChapterIndex.value = activeIdx
+  }
+}
+
+const onLoadedMetadata = () => {
+  if (!videoRef.value) return
+  duration.value = videoRef.value.duration
+}
+
+const formatTime = (time) => {
+  if (isNaN(time) || !isFinite(time)) return '0:00'
+  const minutes = Math.floor(time / 60)
+  const seconds = Math.floor(time % 60)
+  return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
+}
+
+const toggleFullscreen = () => {
+  if (!videoRef.value) return
+  if (videoRef.value.requestFullscreen) {
+    videoRef.value.requestFullscreen()
+  } else if (videoRef.value.webkitRequestFullscreen) {
+    videoRef.value.webkitRequestFullscreen()
+  } else if (videoRef.value.msRequestFullscreen) {
+    videoRef.value.msRequestFullscreen()
+  }
+}
+
+// Timeline seeking/dragging handlers
+let isDragging = false
+
+const seek = (event) => {
+  if (!videoRef.value || !progressContainerRef.value || !duration.value) return
+  const rect = progressContainerRef.value.getBoundingClientRect()
+  const offsetX = event.clientX - rect.left
+  const width = rect.width
+  let percent = offsetX / width
+  if (percent < 0) percent = 0
+  if (percent > 1) percent = 1
+  
+  videoRef.value.currentTime = percent * duration.value
+  progressPercent.value = percent * 100
+}
+
+const onDrag = (event) => {
+  if (!isDragging) return
+  seek(event)
+}
+
+const stopDrag = () => {
+  isDragging = false
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('mousemove', onDrag)
+    window.removeEventListener('mouseup', stopDrag)
+  }
+}
+
+const startDrag = (event) => {
+  isDragging = true
+  seek(event)
+  if (typeof window !== 'undefined') {
+    window.addEventListener('mousemove', onDrag)
+    window.addEventListener('mouseup', stopDrag)
+  }
+}
 
 const toggleFaq = (idx) => {
   if (activeFaqIdx.value === idx) {
