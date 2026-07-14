@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="relative w-full aspect-video rounded-3xl overflow-hidden border border-subtle group">
-        <img :alt="post.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" :src="getImageUrl(post.image_url)" referrerpolicy="no-referrer" @error="(e) => e.target.src = TEMPLATE_IMAGE"/>
+        <img :alt="post.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" :src="`http://206.189.131.166:8080/storage/${post.image_url}`" referrerpolicy="no-referrer" @error="(e) => e.target.src = TEMPLATE_IMAGE"/>
         <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
       </div>
     </header>
@@ -330,7 +330,7 @@ useSeoMeta({
   ogTitle: () => `${post.value?.title || 'Blog Insights'} | wappCAST`,
   description: () => post.value?.description || post.value?.excerpt || 'WhatsApp Marketing API Insights.',
   ogDescription: () => post.value?.description || post.value?.excerpt || 'WhatsApp Marketing API Insights.',
-  ogImage: () => getImageUrl(post.value?.image_url),
+  ogImage: () => `http://206.189.131.166:8080/storage/${post.image_url}`,
   ogUrl: () => `https://wappcast.com/resources/${post.value?.slug}`,
   ogType: 'article',
   twitterCard: 'summary_large_image',
