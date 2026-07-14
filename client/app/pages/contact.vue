@@ -127,8 +127,6 @@
               <span class="material-symbols-outlined text-primary text-3xl mb-4">location_on</span>
               <h4 class="font-headline-md text-xl mb-2 text-on-surface">Head Office</h4>
               <p class="text-on-surface-variant">Opp. Infinity Motors, Patorkuchi Road Basistha, Guwahati, Assam 781029</p>
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4492.304481380199!2d91.8001176!3d26.110409500000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDA2JzM3LjUiTiA5McKwNDgnMDAuNCJF!5e1!3m2!1sen!2sin!4v1784051376739!5m2!1sen!2sin" style="border:0;" allowfullscreen="true" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" class="w-full h-48 rounded-2xl mt-4"></iframe>
             </div>
           </div>
         </div>
