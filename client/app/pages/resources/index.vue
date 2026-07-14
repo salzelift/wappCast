@@ -86,7 +86,7 @@
               {{ post.description }}
             </p>
             <div class="mt-auto">
-              <NuxtLink :to="`/blog/${post.slug}`" class="inline-flex items-center gap-2 text-primary font-bold group/link">
+              <NuxtLink :to="`/resources/${post.slug}`" class="inline-flex items-center gap-2 text-primary font-bold group/link">
                 Read More 
                 <span class="material-symbols-outlined text-[18px] transition-transform group-hover/link:translate-x-1">arrow_forward</span>
               </NuxtLink>
@@ -344,7 +344,7 @@ useSeoMeta({
   description: 'Get the latest strategies, guides, and updates on WhatsApp marketing, no-code chat automations, and Meta API integration from wappCAST\'s official insights blog.',
   ogDescription: 'Get the latest strategies, guides, and updates on WhatsApp marketing, no-code chat automations, and Meta API integration from wappCAST\'s official insights blog.',
   ogImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCikwuipb4tcY_c7NHAwPgVtPx2MhR4O5mtElbALZ6nM-pNwpAMVlEnXOtvA6G8XP9pJj7U3gpRfSFrkL9nKcDIoy1E9PZO7T1CfBUIUOO9wwmApHk20mmUdECqRYtVz4zpc8S8xfW5QAjraquycO5f0rkSEH2lin5eLKPkvKTnFLem_5MBK3-tqXgClikXMG9BevpK-60Mc1oAZZgA3CllK2keaOcEnEPvwBIjYBDBN1CCy5wQwv6myS5EHmbW52AxFjgYcC3AOzAY',
-  ogUrl: 'https://wappcast.com/blog',
+  ogUrl: 'https://wappcast.com/resources',
   ogType: 'website',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Official Meta WhatsApp API Blog & Marketing Insights | wappCAST',
@@ -355,7 +355,7 @@ useSeoMeta({
 
 useHead({
   link: [
-    { rel: 'canonical', href: 'https://wappcast.com/blog' }
+    { rel: 'canonical', href: 'https://wappcast.com/resources' }
   ]
 })
 

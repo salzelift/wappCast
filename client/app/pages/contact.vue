@@ -118,7 +118,7 @@
                   </a>
                 </div>
                 <div class="hidden sm:block">
-                  <img alt="QR Code" class="w-24 h-24 rounded-lg border border-border-subtle p-1 bg-white opacity-80" data-alt="A clean, minimalist QR code displayed on a high-end smartphone screen held by a professional in a dark office environment. The lighting is moody and focused, with soft emerald green accents highlighting the device edges. The background shows a blurry technological dashboard with data streams, reflecting the wappCAST brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARDlBTBWOAkE-vuqH--mFmekKTNSEoKBLqU6rPkPoPzswcn4ahWUNNkmrQr-UIIBqWYNFPL2yl4OrYvlnDL-1RdR5AeJVv8w6RK_t5HMyEUcWLRWGt-wEGKz12O60sfPOFL_V7mLeqh_9z-huDwj7sPKhM-Nkg7S37aTTpyIyc39T1ptwuT27GURzh0MiWbJWa36-h9jZumegDN7UfMH3RW44VwFOGxb4DxxuWU5-x86Ghr8GUsL2LLzVSAkAj_hsGua8S6x222cX_"/>
+                  <img alt="QR Code" class="size-28 rounded-lg border border-border-subtle p-1 bg-white opacity-80" data-alt="A clean, minimalist QR code displayed on a high-end smartphone screen held by a professional in a dark office environment. The lighting is moody and focused, with soft emerald green accents highlighting the device edges. The background shows a blurry technological dashboard with data streams, reflecting the wappCAST brand identity." src="/qr-code.jpeg"/>
                 </div>
               </div>
             </div>
@@ -127,14 +127,16 @@
               <span class="material-symbols-outlined text-primary text-3xl mb-4">location_on</span>
               <h4 class="font-headline-md text-xl mb-2 text-on-surface">Head Office</h4>
               <p class="text-on-surface-variant">Opp. Infinity Motors, Patorkuchi Road Basistha, Guwahati, Assam 781029</p>
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4492.304481380199!2d91.8001176!3d26.110409500000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDA2JzM3LjUiTiA5McKwNDgnMDAuNCJF!5e1!3m2!1sen!2sin!4v1784051376739!5m2!1sen!2sin" style="border:0;" allowfullscreen="true" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" class="w-full h-48 rounded-2xl mt-4"></iframe>
             </div>
           </div>
         </div>
         
         <!-- Embedded Map placeholder -->
         <div class="w-full h-48 rounded-2xl overflow-hidden glass-card">
-          <div class="w-full h-full grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100" data-location="Guwahati, India">
-            <img alt="Map Location" class="w-full h-full object-cover" data-alt="A cinematic view of Guwahati, Assam showing the city landscape and hills, reflecting wappCAST's business location." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcqDnHVIEZcTXEaI1d7I-_THPOmhzyyqtJKkeyhTiiyTn7nGDrUGqqGLbxyODLAsi1uaZgYkqNFAv-3nBiplxEFP1UDhJGp3kuRSXuG7iyVmB37fwgVD4b0FbK7Kky95hI_hdk2kfKD79zFukz3o5KvwHB_5z9NqH9sABnkohTxFG1t9tYG0R_btBpDLkt0CJroy0DNbPeMX8CY3ar7ZA9uP0ojxfS1fbVQzcc9mRpnNaXB3rkGYMhjzBHmm-wcBioiu0XMNXhAy7P"/>
+          <div class="w-full h-full" data-location="Guwahati, India">
+            <img alt="Map Location" class="w-full h-full object-cover" data-alt="A cinematic view of Guwahati, Assam showing the city landscape and hills, reflecting wappCAST's business location." src="/office.webp"/>
           </div>
         </div>
       </div>

@@ -46,9 +46,9 @@
             Data
           </NuxtLink>
           <NuxtLink 
-            to="/blog" 
+            to="/resources" 
             class="transition-colors duration-200 font-semibold text-sm transition-all"
-            :class="[route.path.startsWith('/blog') ? 'text-primary -translate-y-1 scale-110 font-bold' : 'text-on-surface-variant hover:text-primary']"
+            :class="[route.path.startsWith('/resources') ? 'text-primary -translate-y-1 scale-110 font-bold' : 'text-on-surface-variant hover:text-primary']"
           >
             Resources
           </NuxtLink>
@@ -141,7 +141,7 @@
         Data
       </NuxtLink>
       <NuxtLink 
-        to="/blog" 
+        to="/resources" 
         @click="isMobileMenuOpen = false"
         class="block py-2 font-semibold text-sm text-on-surface hover:text-primary transition-colors border-b border-white/5"
       >

@@ -52,7 +52,7 @@
       <div>
         <h4 class="font-bold mb-6 text-on-surface">Company</h4>
         <ul class="space-y-4">
-          <li><NuxtLink class="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/blog">Blog</NuxtLink></li>
+          <li><NuxtLink class="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/resources">Blog</NuxtLink></li>
           <li><NuxtLink class="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/privacy">Privacy Policy</NuxtLink></li>
           <li><NuxtLink class="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/terms">Terms of Service</NuxtLink></li>
           <li><NuxtLink class="text-on-surface-variant hover:text-primary transition-colors font-body-md" to="/data">Data</NuxtLink></li>
@@ -70,6 +70,7 @@
           <span class="px-2 py-1 border border-subtle rounded text-[10px] uppercase font-bold">UPI</span>
         </div>
         <p class="text-label-sm font-label-sm text-on-surface-variant italic">Made with Love in India ❤️</p>
+        <img src="/meta-partner-api.png" alt="wappCAST" class="h-24 w-auto object-contain -ml-8" />
       </div>
     </div>
     <div class="max-w-container-max mx-auto mt-16 pt-8 border-t border-subtle text-center text-label-sm font-label-sm text-on-surface-variant">

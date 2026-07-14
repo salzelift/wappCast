@@ -5,7 +5,7 @@
       <nav class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
         <NuxtLink class="hover:text-primary" to="/">Home</NuxtLink>
         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-        <NuxtLink class="hover:text-primary" to="/blog">Blog</NuxtLink>
+        <NuxtLink class="hover:text-primary" to="/resources">Blog</NuxtLink>
         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
         <span class="text-on-surface line-clamp-1">{{ post.title }}</span>
       </nav>
@@ -104,13 +104,13 @@
       <div class="max-w-container-max mx-auto px-margin-mobile">
         <div class="flex items-center justify-between mb-10">
           <h2 class="font-headline-md text-headline-md text-on-surface">Related Insights</h2>
-          <NuxtLink class="text-primary hover:underline font-label-sm text-label-sm flex items-center gap-2" to="/blog">
+          <NuxtLink class="text-primary hover:underline font-label-sm text-label-sm flex items-center gap-2" to="/resources">
             View All Posts <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
           </NuxtLink>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
           <div v-for="related in relatedPosts" :key="related.slug" class="group cursor-pointer">
-            <NuxtLink :to="`/blog/${related.slug}`">
+            <NuxtLink :to="`/resources/${related.slug}`">
               <div class="aspect-video rounded-2xl overflow-hidden mb-4 border border-subtle relative">
                 <img :alt="related.title" class="w-full h-full object-cover transition-transform group-hover:scale-105" :src="getImageUrl(related.image_url)" referrerpolicy="no-referrer" @error="(e) => e.target.src = TEMPLATE_IMAGE"/>
                 <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors"></div>
@@ -320,7 +320,7 @@ useSeoMeta({
   description: () => post.value?.description || post.value?.excerpt || 'WhatsApp Marketing API Insights.',
   ogDescription: () => post.value?.description || post.value?.excerpt || 'WhatsApp Marketing API Insights.',
   ogImage: () => getImageUrl(post.value?.image_url),
-  ogUrl: () => `https://wappcast.com/blog/${post.value?.slug}`,
+  ogUrl: () => `https://wappcast.com/resources/${post.value?.slug}`,
   ogType: 'article',
   twitterCard: 'summary_large_image',
   twitterTitle: () => `${post.value?.title || 'Blog Insights'} | wappCAST`,
@@ -331,7 +331,7 @@ useSeoMeta({
 
 useHead({
   link: [
-    { rel: 'canonical', href: () => `https://wappcast.com/blog/${post.value?.slug || ''}` }
+    { rel: 'canonical', href: () => `https://wappcast.com/resources/${post.value?.slug || ''}` }
   ]
 })
 
