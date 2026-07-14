@@ -11,7 +11,7 @@
           Simple, Transparent Pricing for <span class="gradient-text">Growing Businesses</span>
         </h1>
         <h2 class="font-headline-md text-headline-sm text-secondary font-bold mb-3">
-          Stop Paying ₹50,000–₹2,00,000+ Every Year for the Same Features
+          Stop Paying {{ currency === 'INR' ? '₹50,000–₹2,00,000+' : '$600–$2,400+' }} Every Year for the Same Features
         </h2>
         <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto mb-6">
           The Smarter Alternative to WATI, AiSensy, Interakt &amp; Gallabox
@@ -182,10 +182,21 @@
                 <td class="p-6 font-body-md font-bold text-primary bg-primary/5">
                   {{ currency === 'INR' ? '₹14,499' : '$179' }}
                 </td>
-                <td class="p-6 font-body-md text-on-surface-variant">₹80,000+</td>
-                <td class="p-6 font-body-md text-on-surface-variant">₹85,000+</td>
-                <td class="p-6 font-body-md text-on-surface-variant">₹48,000+</td>
-                <td class="p-6 font-body-md text-on-surface-variant">₹2,12,000+</td>
+                <td class="p-6 font-body-md font-bold text-primary bg-primary/5">
+                  {{ currency === 'INR' ? '₹14,499' : '$179' }}
+                </td>
+                <td class="p-6 font-body-md text-on-surface-variant">
+                  {{ currency === 'INR' ? '₹80,000+' : '$960+' }}
+                </td>
+                <td class="p-6 font-body-md text-on-surface-variant">
+                  {{ currency === 'INR' ? '₹85,000+' : '$1,020+' }}
+                </td>
+                <td class="p-6 font-body-md text-on-surface-variant">
+                  {{ currency === 'INR' ? '₹48,000+' : '$580+' }}
+                </td>
+                <td class="p-6 font-body-md text-on-surface-variant">
+                  {{ currency === 'INR' ? '₹2,12,000+' : '$2,550+' }}
+                </td>
               </tr>
               <tr>
                 <td class="p-6 font-body-md">No-code chat-flow builder</td>
@@ -383,7 +394,7 @@ defineOgImageComponent('NuxtSeo', {
 
 const pricingFaqs = [
   {
-    question: "Is ₹14,499 the total yearly cost?",
+    question: `Is ${currency==="INR"?"₹14,499":"$179"} the total yearly cost?`,
     answer: "Yes. Your wappCAST subscription costs only ₹14,499 per year. WhatsApp conversation charges from Meta are billed separately based on usage."
   },
   {
