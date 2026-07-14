@@ -276,9 +276,13 @@ const TEMPLATE_IMAGE = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCikw
 
 // Helper: Format image URLs
 const getImageUrl = (url) => {
-  if (!url) return TEMPLATE_IMAGE
+  const SITE_URL = 'https://wappcast.com' // Replace with your production domain
+  
+  if (!url) return `${SITE_URL}${TEMPLATE_IMAGE}`
   
   let processedUrl = url
+  
+  // 1. If it's already an absolute URL
   if (processedUrl.startsWith('http://') || processedUrl.startsWith('https://')) {
     if (
       processedUrl.includes('localhost') || 
@@ -287,12 +291,19 @@ const getImageUrl = (url) => {
     ) {
       const storageIdx = processedUrl.indexOf('/storage/')
       if (storageIdx !== -1) {
-        return processedUrl.substring(storageIdx)
+        // Return absolute path for local/ip storage
+        return `${SITE_URL}${processedUrl.substring(storageIdx)}`
       }
     }
     return processedUrl
   }
-  return `/storage/${processedUrl}`
+  
+  // 2. If it's a relative path, make it absolute
+  if (processedUrl.startsWith('/')) {
+    return `${SITE_URL}${processedUrl}`
+  }
+  
+  return `${SITE_URL}/storage/${processedUrl}`
 }
 
 // Helper: Format date
