@@ -50,7 +50,7 @@
             class="transition-colors duration-200 font-semibold text-sm transition-all"
             :class="[route.path.startsWith('/blog') ? 'text-primary -translate-y-1 scale-110 font-bold' : 'text-on-surface-variant hover:text-primary']"
           >
-            Blog
+            Resources
           </NuxtLink>
         </div>
       </div>
@@ -145,7 +145,7 @@
         @click="isMobileMenuOpen = false"
         class="block py-2 font-semibold text-sm text-on-surface hover:text-primary transition-colors border-b border-white/5"
       >
-        Blog
+        Resources
       </NuxtLink>
       <NuxtLink 
         to="http://app.wappcast.com/" 
